@@ -1,0 +1,121 @@
+        body {
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    font-size: 16px;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+header {
+    background-color: #FFFFFF;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; 
+}
+
+header a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
+    color: #FFFFFF;
+    min-height: 100vh; /* Ensure it fills the entire vie    wport height */
+    padding: 20px; /* Optional padding */
+}
+
+.hero h1 {
+    font-size: 3rem; /* Increase font size for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+.hero p {
+    font-size: 1.5rem; /* Increase font size for the paragraph */
+    margin-bottom: 40px; /* Add spacing below the paragraph */
+}
+
+.hero button {
+    font-size: 1.25rem; /* Slightly increase button font size */
+    padding: 15px 30px; /* Adjust button padding */
+    background-color: #1470AF;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero button:hover {
+    background-color: #8EB6DC;
+}
+
+
+.services {
+    background-color: #EAEAEE;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    color: #1470AF;
+    margin-bottom: 20px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service {
+    background-color: #FFFFFF;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #EAEAEE;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.service .rectangle {
+    width: 100%;
+    height: 200px;
+    background-color: #EAEAEE;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #EAEAEE;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+footer div {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #1470AF;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
