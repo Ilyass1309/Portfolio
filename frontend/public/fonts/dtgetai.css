@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'DTGetaiGroteskDisplay';
+  src: url('./DTGetaiGroteskDisplay-Black.woff2') format('woff2'),
+       url('./DTGetaiGroteskDisplay-Black.woff') format('woff'),
+       url('./DTGetaiGroteskDisplay-Black.ttf') format('truetype'),
+       url('./DTGetaiGroteskDisplay-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

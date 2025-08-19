@@ -136,7 +136,7 @@ export default function BreezyPage() {
       {/* Overview section */}
       <div className="w-full flex flex-col items-center my-8 page-enter-delay-2">
         <div className="grid grid-cols-1 max-w-2xl w-full gap-4 text-left">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
+          <h2 className="text-4xl font-bold mb-4 title-font" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
           <p className="text-2xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
             EasySave is a simple and powerful backup application, designed to make managing your local, external, or network backups easy. It offers an intuitive interface, precise disk space monitoring, and fast setup for all your backup needs.
           </p>

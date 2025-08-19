@@ -3,7 +3,7 @@ export default function Home() {
     <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-20 sm:pt-32 page-enter">
       <div className="text-center px-4 sm:px-6 page-enter-delay-1">
         <h1
-          className="font-extrabold text-center mb-2 flex justify-center items-center"
+          className="font-extrabold text-center mb-2 flex justify-center items-center dtgetai-title"
           style={{
             fontSize: "clamp(48px, 8vw, 110px)",
             width: "100%",
@@ -12,7 +12,6 @@ export default function Home() {
             margin: "10px auto 60px sm:110px auto",
             letterSpacing: "-1px sm:-2px",
             color: "hsla(172, 95%, 18%, 1)",
-            fontFamily: "Sans-serif",
             lineHeight: "0.9",
           }}
         >
