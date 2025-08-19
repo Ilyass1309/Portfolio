@@ -66,7 +66,7 @@ export default function About() {
       <footer className="w-full flex flex-col items-center mt-24 mb-8">
         <div className="flex gap-6 items-center">
           <a
-            href="https://www.linkedin.com/in/ton-profil"
+            href="https://www.linkedin.com/in/ilyass-tran/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -80,7 +80,7 @@ export default function About() {
             </svg>
           </a>
           <a
-            href="https://github.com/ton-profil"
+            href="https://github.com/Ilyass1309"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
