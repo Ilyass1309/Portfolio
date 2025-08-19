@@ -37,6 +37,7 @@ function createBlob(width, height) {
 		y: randomBetween(radius, height * 0.7),
 		r: radius,
 		color: COLORS[Math.floor(Math.random() * COLORS.length)],
+		// Vitesse identique sur tous les appareils (comme sur desktop)
 		dx: randomBetween(-0.08, 0.08),
 		dy: randomBetween(-0.06, 0.06),
 		alpha: randomBetween(0.35, 0.6),
@@ -70,15 +71,8 @@ function animateBlobs(canvas, numBlobs = 6) {
 			ctx.arc(blob.x, blob.y, blob.r, 0, Math.PI * 2);
 			ctx.closePath();
 			ctx.fillStyle = blob.color;
-			// Flou proportionnel mais consistant selon la taille d'écran
-			let blurAmount;
-			if (width <= 640) { // Mobile
-				blurAmount = Math.max(20, Math.min(40, blob.r * 0.25));
-			} else if (width <= 1024) { // Tablette
-				blurAmount = Math.max(35, Math.min(60, blob.r * 0.3));
-			} else { // Desktop
-				blurAmount = Math.max(50, Math.min(80, blob.r * 0.3));
-			}
+			// Flou identique sur tous les appareils (comme sur desktop)
+			const blurAmount = Math.max(50, Math.min(80, blob.r * 0.3));
 			ctx.filter = `blur(${blurAmount}px)`;
 			ctx.fill();
 			ctx.restore();
