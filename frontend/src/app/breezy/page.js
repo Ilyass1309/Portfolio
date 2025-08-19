@@ -126,7 +126,7 @@ export default function BreezyPage() {
           }}
         >
           <img
-            src="/easysave/EasySave-white.png"
+            src="/easySave/EasySave-white.png"
             alt="EasySave interface preview"
             style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />

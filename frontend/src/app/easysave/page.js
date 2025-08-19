@@ -123,7 +123,7 @@ export default function EasySavePage() {
           }}
         >
           <img
-            src="/easysave/EasySave-white.png"
+            src="/easySave/EasySave-white.png"
             alt="EasySave interface preview"
             style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
@@ -162,11 +162,11 @@ export default function EasySavePage() {
           {/* GIFs one below the other */}
           <div className="flex flex-col items-center gap-12">
             <div className="flex flex-col items-center">
-              <img src="/easysave/backup.gif" alt="Demo GIF 1" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
+              <img src="/easySave/backup.gif" alt="Demo GIF 1" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
               <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Backup in action</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/easysave/create-job.gif" alt="Demo GIF 2" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
+              <img src="/easySave/create-job.gif" alt="Demo GIF 2" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
               <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Create a job</span>
             </div>
           </div>
