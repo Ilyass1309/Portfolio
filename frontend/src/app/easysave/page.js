@@ -2,10 +2,10 @@
 
 export default function EasySavePage() {
   return (
-    <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative">
+    <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative page-enter">
       {/* Title */}
       <h1
-        className="font-extrabold text-center mb-2 flex justify-center items-center"
+        className="font-extrabold text-center mb-2 flex justify-center items-center page-enter-delay-1"
         style={{
           fontSize: "110px",
           width: "330px",
@@ -19,7 +19,7 @@ export default function EasySavePage() {
       </h1>
 
       {/* Main grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 w-full max-w-2xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 w-full max-w-2xl page-enter-delay-1">
         {/* Timeline */}
         <div className="flex flex-col items-center">
           <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Timeline</div>
@@ -112,7 +112,7 @@ export default function EasySavePage() {
       </div>
 
       {/* Main interface preview */}
-      <div className="w-full flex justify-center items-center my-16">
+      <div className="w-full flex justify-center items-center my-16 page-enter-delay-2">
         <div
           className="bg-neutral-100 rounded-2xl shadow-lg flex justify-center items-center"
           style={{
@@ -131,7 +131,7 @@ export default function EasySavePage() {
       </div>
 
       {/* Overview section */}
-      <div className="w-full flex flex-col items-center my-8">
+      <div className="w-full flex flex-col items-center my-8 page-enter-delay-2">
         <div className="grid grid-cols-1 max-w-2xl w-full gap-4 text-left">
           <h2 className="text-4xl font-bold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
           <p className="text-2xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
@@ -141,7 +141,7 @@ export default function EasySavePage() {
       </div>
 
       {/* Key Features */}
-      <div className="w-full flex flex-col items-center my-8">
+      <div className="w-full flex flex-col items-center my-8 page-enter-delay-3">
         <div className="max-w-2xl w-full">
           <h2 className="text-3xl font-bold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
             Key Features
@@ -157,7 +157,7 @@ export default function EasySavePage() {
       </div>
 
       {/* GIFs & Images section */}
-      <div className="w-full flex flex-col items-center my-12">
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
         <div className="grid grid-cols-1 gap-12 max-w-7xl w-full">
           {/* GIFs one below the other */}
           <div className="flex flex-col items-center gap-12">

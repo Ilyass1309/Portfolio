@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-20 sm:pt-32">
-      <div className="text-center px-4 sm:px-6">
+    <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-20 sm:pt-32 page-enter">
+      <div className="text-center px-4 sm:px-6 page-enter-delay-1">
         <h1
           className="font-extrabold text-center mb-2 flex justify-center items-center"
           style={{
@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       {/* Section Projets */}
-      <section className="w-full max-w-5xl px-4 sm:px-6 mt-12 sm:mt-20">
+      <section className="w-full max-w-5xl px-4 sm:px-6 mt-12 sm:mt-20 page-enter-delay-2">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">Mes Projets</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Breezy */}
@@ -53,7 +53,7 @@ export default function Home() {
       </section>
 
       {/* Section contacts */}
-      <footer className="w-full flex flex-col items-center mt-16 sm:mt-24 mb-8 px-4">
+      <footer className="w-full flex flex-col items-center mt-16 sm:mt-24 mb-8 px-4 page-enter-delay-3">
         <div className="flex gap-4 sm:gap-6 items-center">
           <a href="https://www.linkedin.com/in/ilyass-tran/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-transform">
             <svg width="28" height="28" className="sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>

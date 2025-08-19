@@ -1,9 +1,9 @@
 export default function IAStrategiePage() {
   return (
-    <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4">
+    <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 page-enter">
       {/* Titre et infos */}
       <h1
-        className="font-extrabold text-center mb-2"
+        className="font-extrabold text-center mb-2 page-enter-delay-1"
         style={{
           fontSize: "82px",
           width: "246px",
@@ -14,13 +14,13 @@ export default function IAStrategiePage() {
       >
         IA Stratégie
       </h1>
-      <div className="text-center text-lg text-neutral-500 mb-1">
+      <div className="text-center text-lg text-neutral-500 mb-1 page-enter-delay-1">
         Projet IA sur jeu de stratégie
       </div>
-      <div className="text-center text-sm text-neutral-400 mb-4">
+      <div className="text-center text-sm text-neutral-400 mb-4 page-enter-delay-1">
         Juin 2025
       </div>
-      <div className="flex justify-center gap-4 mb-8">
+      <div className="flex justify-center gap-4 mb-8 page-enter-delay-1">
         {/* Ajoute ici les logos de ton équipe */}
         <img
           src="/user1.png"
@@ -40,12 +40,12 @@ export default function IAStrategiePage() {
       </div>
 
       {/* Espace images */}
-      <div className="w-full max-w-3xl h-56 bg-neutral-100 rounded-lg mb-8 flex items-center justify-center text-neutral-400">
+      <div className="w-full max-w-3xl h-56 bg-neutral-100 rounded-lg mb-8 flex items-center justify-center text-neutral-400 page-enter-delay-2">
         <span>Images du projet ici</span>
       </div>
 
       {/* Le problème */}
-      <section className="mb-8 max-w-3xl w-full">
+      <section className="mb-8 max-w-3xl w-full page-enter-delay-2">
         <h2 className="text-2xl font-semibold mb-2">Le problème</h2>
         <p className="text-neutral-700">
           Comment permettre à une IA d'apprendre et d'optimiser ses décisions dans

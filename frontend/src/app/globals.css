@@ -57,6 +57,37 @@ html, body {
   animation: fadeInUp 1s ease-out both;
 }
 
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: slideInFromTop 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-enter-stagger {
+  animation: slideInFromTop 0.8s cubic-bezier(0.16, 1, 1) both;
+}
+
+.page-enter-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.page-enter-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.page-enter-delay-3 {
+  animation-delay: 0.3s;
+}
+
 @keyframes gradientMove {
   0% {
     background-size: 200% 200%;

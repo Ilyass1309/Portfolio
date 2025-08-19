@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-32 px-4">
-      <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start gap-12">
+    <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-32 px-4 page-enter">
+      <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start gap-12 page-enter-delay-1">
         {/* Texte à gauche */}
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-5xl font-bold mb-6">I'm Ilyass</h1>
@@ -29,7 +29,7 @@ export default function About() {
         </div>
       </div>
       {/* Section Éducation & Expérience */}
-      <div className="mt-8 sm:mt-12 w-full max-w-4xl">
+      <div className="mt-8 sm:mt-12 w-full max-w-4xl page-enter-delay-2">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">Education & Experience</h2>
         <ol className="relative border-l-2 border-neutral-200 pl-2 sm:pl-0">
           {/* Expérience 1 */}
@@ -63,7 +63,7 @@ export default function About() {
         </ol>
       </div>
       {/* Section contacts */}
-      <footer className="w-full flex flex-col items-center mt-16 sm:mt-24 mb-8 px-4">
+      <footer className="w-full flex flex-col items-center mt-16 sm:mt-24 mb-8 px-4 page-enter-delay-3">
         <div className="flex gap-4 sm:gap-6 items-center">
           <a
             href="https://www.linkedin.com/in/ilyass-tran/"
