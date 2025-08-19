@@ -165,22 +165,22 @@ export default function BreezyPage() {
           {/* GIFs one below the other */}
           <div className="flex flex-col items-center gap-12">
             <div className="flex flex-col items-center">
-              <img src="/easysave/backup.gif" alt="Demo GIF 1" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
+              <img src="/easySave/backup.gif" alt="Demo GIF 1" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
               <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Backup in action</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/easysave/create-job.gif" alt="Demo GIF 2" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
+              <img src="/easySave/create-job.gif" alt="Demo GIF 2" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
               <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Create a job</span>
             </div>
           </div>
           {/* Images side by side */}
           <div className="flex flex-row items-center justify-center gap-12">
             <div className="flex flex-col items-center">
-              <img src="/easysave/settings1.png" alt="Screenshot 1" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
+              <img src="/easySave/settings1.png" alt="Screenshot 1" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
               <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Settings</span>
             </div>
             <div className="flex flex-col items-center">
-              <img src="/easysave/settings2.png" alt="Screenshot 2" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
+              <img src="/easySave/settings2.png" alt="Screenshot 2" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
               <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Advanced settings</span>
             </div>
           </div>
