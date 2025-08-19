@@ -94,7 +94,7 @@ export default function About() {
             </svg>
           </a>
           <a
-            href="/cv.pdf"
+            href="/CV-ilyass-2026-(2).pdf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="CV"
