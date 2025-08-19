@@ -82,54 +82,6 @@ body {
   font-family: var(--font-sans), Arial, sans-serif;
 }
 
-.bg-gradient-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: clamp(300px, 60vh, 420px); 
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse clamp(80%, 120%, 140%) clamp(60%, 80%, 100%) at 50% 0%,
-    #b6e0fe 0%,
-    #b8f2e6 25%,
-    #fbc2eb 55%,
-    #f6eac2 90%,
-    #f6eac2 100%
-  );
-  opacity: 0.7;
-}
-
-/* Media queries pour un contrôle plus précis */
-@media (max-width: 640px) {
-  .bg-gradient-top {
-    height: clamp(250px, 50vh, 350px);
-    background: radial-gradient(
-      ellipse 90% 70% at 50% 0%,
-      #b6e0fe 0%,
-      #b8f2e6 25%,
-      #fbc2eb 55%,
-      #f6eac2 90%,
-      #f6eac2 100%
-    );
-  }
-}
-
-@media (min-width: 1024px) {
-  .bg-gradient-top {
-    height: clamp(400px, 70vh, 500px);
-    background: radial-gradient(
-      ellipse 130% 90% at 50% 0%,
-      #b6e0fe 0%,
-      #b8f2e6 25%,
-      #fbc2eb 55%,
-      #f6eac2 90%,
-      #f6eac2 100%
-    );
-  }
-}
-
 .text-center-description {
   text-align: center;
   margin-left: auto;

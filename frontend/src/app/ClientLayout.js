@@ -17,17 +17,16 @@ function randomBetween(a, b) {
 }
 
 function createBlob(width, height) {
-	// Calculer la taille des bulles basée sur la largeur d'écran seulement
-	// Pour garder la même animation sur tous les appareils
+	// Adaptation de la taille des bulles selon la largeur d'écran
 	const screenWidth = width;
 	let baseRadius;
 	
 	if (screenWidth <= 640) { // Mobile
-		baseRadius = 80; // Bulles plus petites sur mobile
+		baseRadius = 120; // Bulles plus petites sur mobile
 	} else if (screenWidth <= 1024) { // Tablette
-		baseRadius = 140; // Taille intermédiaire
+		baseRadius = 160; // Taille intermédiaire
 	} else { // Desktop
-		baseRadius = 200; // Bulles plus grandes sur desktop
+		baseRadius = 200; // Taille normale sur desktop
 	}
 	
 	const radius = randomBetween(baseRadius * 0.6, baseRadius * 1.4); // variation de ±40%
@@ -37,26 +36,38 @@ function createBlob(width, height) {
 		y: randomBetween(radius, height * 0.7),
 		r: radius,
 		color: COLORS[Math.floor(Math.random() * COLORS.length)],
-		// Vitesse identique sur tous les appareils (comme sur desktop)
+		// Vitesse identique sur tous les appareils
 		dx: randomBetween(-0.08, 0.08),
 		dy: randomBetween(-0.06, 0.06),
 		alpha: randomBetween(0.35, 0.6),
 	};
 }
 
-function animateBlobs(canvas, numBlobs = 6) {
+function animateBlobs(canvas) {
 	if (!canvas) return;
 	const ctx = canvas.getContext('2d');
 	let width = window.innerWidth;
 	let height = 700; // Hauteur fixe pour garder la même animation sur tous les appareils
 	let blobs = [];
 
+	// Fonction pour déterminer le nombre de bulles selon la taille d'écran
+	function getNumBlobs(screenWidth) {
+		if (screenWidth <= 640) { // Mobile
+			return 3; // Moins de bulles sur mobile
+		} else if (screenWidth <= 1024) { // Tablette
+			return 4; // Nombre intermédiaire
+		} else { // Desktop
+			return 6; // Nombre normal sur desktop
+		}
+	}
+
 	function resize() {
 		width = window.innerWidth;
 		height = 700; // Hauteur fixe
 		canvas.width = width;
 		canvas.height = height;
-		// Recalculer les bulles avec les nouvelles dimensions
+		// Recalculer les bulles avec les nouvelles dimensions et le bon nombre
+		const numBlobs = getNumBlobs(width);
 		blobs = Array.from({ length: numBlobs }, () => createBlob(width, height));
 	}
 
