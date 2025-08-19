@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import LanguageToggle from "@/components/LanguageToggle";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientLayout>
           <Navbar />
+          <LanguageToggle />
           {children}
         </ClientLayout>
       </body>
