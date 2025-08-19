@@ -25,7 +25,7 @@ export default function EasySavePage() {
         {/* Timeline */}
         <div className="flex flex-col items-center">
           <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Timeline</div>
-          <div className="rounded-full px-4 py-2 text-neutral-700" style={{ color: "hsla(172, 95%, 18%, 1)" }}>2025</div>
+          <div className="rounded-full px-4 py-2 text-neutral-700" style={{ color: "hsla(172, 95%, 18%, 1)" }}>2024</div>
         </div>
         {/* Team */}
         <div className="flex flex-col items-center">
@@ -107,10 +107,17 @@ export default function EasySavePage() {
         <div className="flex flex-col items-center">
           <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Role</div>
           <div className="rounded-full px-4 py-2 text-neutral-700 text-center" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Software Engineer, Master UI-UX Designer
+            Software Engineer, UI Designer
             <br />
           </div>
         </div>
+      </div>
+
+      {/* Brief description */}
+      <div className="w-full flex justify-center items-center my-8 page-enter-delay-1">
+        <p className="text-center text-xl max-w-4xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+          Application de sauvegarde complète et différentielle développée en <strong>C# WPF</strong> pour ProSoft, offrant une interface ergonomique et des fonctionnalités avancées de gestion de données.
+        </p>
       </div>
 
       {/* Main interface preview */}
@@ -133,54 +140,301 @@ export default function EasySavePage() {
       </div>
 
       {/* Overview section */}
-      <div className="w-full flex flex-col items-center my-8 page-enter-delay-2">
-        <div className="grid grid-cols-1 max-w-2xl w-full gap-4 text-left">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
-          <p className="text-2xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            EasySave is a simple and powerful backup application, designed to make managing your local, external, or network backups easy. It offers an intuitive interface, precise disk space monitoring, and fast setup for all your backup needs.
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-2">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
+          <p className="text-xl leading-relaxed mb-6" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            EasySave est un projet scolaire développé en équipe de 4 personnes pour ProSoft, visant à créer un logiciel de sauvegarde de fichiers sous Windows. L'application propose une solution complète avec interface WPF ergonomique, gestion des sauvegardes différentielles et fonctionnalités avancées de journalisation.
           </p>
-        </div>
-      </div>
-
-      {/* Key Features */}
-      <div className="w-full flex flex-col items-center my-8 page-enter-delay-3">
-        <div className="max-w-2xl w-full">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Key Features
-          </h2>
-          <ul className="list-disc pl-6 space-y-2 text-xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            <li>Incremental backup</li>
-            <li>Backup scheduling</li>
-            <li>Disk space visualization</li>
-            <li>Cross-platform interface</li>
-            <li>Data encryption</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* GIFs & Images section */}
-      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
-        <div className="grid grid-cols-1 gap-12 max-w-7xl w-full">
-          {/* GIFs one below the other */}
-          <div className="flex flex-col items-center gap-12">
-            <div className="flex flex-col items-center">
-              <img src="/easySave/backup.gif" alt="Demo GIF 1" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
-              <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Backup in action</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎯 Objectif</h3>
+              <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                Développer une application de sauvegarde fiable et simple d'utilisation avec interface graphique moderne.
+              </p>
             </div>
-            <div className="flex flex-col items-center">
-              <img src="/easySave/create-job.gif" alt="Demo GIF 2" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
-              <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Create a job</span>
+            <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🏗️ Approche</h3>
+              <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                Développement itératif en 3 versions avec méthode Agile et livraisons progressives.
+              </p>
             </div>
           </div>
-          {/* Images side by side */}
-          <div className="flex flex-row items-center justify-center gap-12">
-            <div className="flex flex-col items-center">
-              <img src="/easySave/settings1.png" alt="Screenshot 1" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
-              <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Settings</span>
+        </div>
+      </div>
+
+      {/* Features section */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Fonctionnalités principales
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="text-3xl mb-3">💾</div>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Sauvegarde complète</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Copie intégrale de tous les fichiers source vers la destination
+              </p>
             </div>
-            <div className="flex flex-col items-center">
-              <img src="/easySave/settings2.png" alt="Screenshot 2" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
-              <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Advanced settings</span>
+            <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="text-3xl mb-3">⚡</div>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Sauvegarde différentielle</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Copie uniquement des fichiers modifiés depuis la dernière sauvegarde
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="text-3xl mb-3">⚙️</div>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Gestion des jobs</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Création, modification et exécution de tâches de sauvegarde multiples
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="text-3xl mb-3">🖥️</div>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interface WPF</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Application desktop ergonomique avec barres de progression et logs
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="text-3xl mb-3">📊</div>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Journalisation</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Logs détaillés et journalisation complète des opérations
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="text-3xl mb-3">🔄</div>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Multi-jobs</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Exécution simultanée de plusieurs tâches configurables
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Development timeline */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Évolution par versions
+          </h2>
+          <div className="space-y-6">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="flex items-center mb-3">
+                <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">V1</span>
+                <h3 className="text-xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Moteur de sauvegarde</h3>
+              </div>
+              <p style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Application console avec fonctionnalités de base : sauvegarde complète et différentielle
+              </p>
+            </div>
+            <div className="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-xl border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="flex items-center mb-3">
+                <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">V2</span>
+                <h3 className="text-xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interface graphique</h3>
+              </div>
+              <p style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Ajout de l'interface WPF avec formulaires de configuration et feedback utilisateur
+              </p>
+            </div>
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <div className="flex items-center mb-3">
+                <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">V3</span>
+                <h3 className="text-xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Version finale</h3>
+              </div>
+              <p style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                Enrichissement avec logs détaillés, gestion avancée des jobs et UX optimisée
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Architecture & Technologies */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Architecture & Technologies
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Technologies</h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {['C#', '.NET Framework', 'WPF', 'MVVM'].map((tech) => (
+                  <span key={tech} className="px-3 py-1 text-sm rounded-full bg-blue-100" style={{ color: "hsla(172, 95%, 18%, 1)", borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Outils</h3>
+              <div className="flex flex-wrap gap-2">
+                {['Visual Studio', 'Git', 'Trello/Jira'].map((tool) => (
+                  <span key={tool} className="px-3 py-1 text-sm rounded-full bg-green-100" style={{ color: "hsla(172, 95%, 18%, 1)", borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🏗️ Architecture</h3>
+              <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                <li>• Séparation logique métier / interface</li>
+                <li>• Pattern MVVM inspiré</li>
+                <li>• Modularité et maintenabilité</li>
+                <li>• Gestion d'erreurs robuste</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* My contributions */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Mes contributions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>💻 Développement</h3>
+              <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                <li>• Implémentation sauvegarde différentielle</li>
+                <li>• Développement interface WPF</li>
+                <li>• Optimisation des performances</li>
+                <li>• Tests et validation</li>
+              </ul>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>📚 Documentation</h3>
+              <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
+                <li>• Documentation technique</li>
+                <li>• Guide utilisateur</li>
+                <li>• Architecture système</li>
+                <li>• Participation aux 3 versions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Challenges & Solutions */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Défis & Solutions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>⚡ Performance</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Algorithmes optimisés pour copies rapides et comparaison efficace</p>
+            </div>
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🔄 Différentiel</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Comparaison intelligente par dates et tailles de fichiers</p>
+            </div>
+            <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎨 UX ergonomique</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Interface WPF intuitive avec feedback temps réel</p>
+            </div>
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>👥 Organisation</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Méthode Agile avec user stories et itérations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Screenshots section */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Interface & Démonstrations
+          </h2>
+          <div className="grid grid-cols-1 gap-12 max-w-7xl w-full">
+            {/* GIFs one below the other */}
+            <div className="flex flex-col items-center gap-12">
+              <div className="flex flex-col items-center">
+                <img src="/easySave/backup.gif" alt="Backup in action" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
+                <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Sauvegarde en action</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <img src="/easySave/create-job.gif" alt="Create job demo" style={{ width: "100%", maxWidth: "1400px", borderRadius: "32px" }} />
+                <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Création d'un job de sauvegarde</span>
+              </div>
+            </div>
+            {/* Images side by side */}
+            <div className="flex flex-row items-center justify-center gap-12">
+              <div className="flex flex-col items-center">
+                <img src="/easySave/settings1.png" alt="Settings interface" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
+                <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interface de paramétrage</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <img src="/easySave/settings2.png" alt="Advanced settings" style={{ width: "100%", maxWidth: "900px", borderRadius: "32px" }} />
+                <span className="mt-6 text-3xl font-semibold" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Paramètres avancés</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Results & Future improvements */}
+      <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
+        <div className="max-w-4xl w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Results */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                Résultats
+              </h2>
+              <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                <ul className="space-y-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    Application fonctionnelle avec interface utilisateur
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    Gestion multi-sauvegardes efficace et robuste
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    3 livraisons itératives réussies
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">✓</span>
+                    Expérience technique et organisationnelle enrichissante
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Future improvements */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                Améliorations futures
+              </h2>
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>📈 Sauvegarde incrémentale</h3>
+                  <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Encore plus fine que la différentielle</p>
+                </div>
+                <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>☁️ Intégration cloud</h3>
+                  <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>OneDrive, Google Drive, AWS S3</p>
+                </div>
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>⏰ Planifications</h3>
+                  <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Exécution automatique programmée</p>
+                </div>
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎨 UI moderne</h3>
+                  <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Interface Material Design</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -189,8 +443,8 @@ export default function EasySavePage() {
       {/* Links */}
       <div className="w-full flex flex-col items-center my-8">
         <div className="max-w-2xl w-full flex flex-col items-center gap-4">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Link
+          <h2 className="text-3xl font-bold mb-4 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Liens du projet
           </h2>
           <div className="flex flex-row gap-6">
             <a
@@ -205,6 +459,18 @@ export default function EasySavePage() {
             >
               View on GitHub
             </a>
+            <button
+              className="px-6 py-3 rounded-lg font-semibold shadow transition hover:scale-105 border-2"
+              style={{
+                background: "transparent",
+                color: "hsla(172, 95%, 18%, 1)",
+                borderColor: "hsla(172, 95%, 18%, 1)",
+                fontSize: "18px",
+              }}
+              onClick={() => alert('Documentation technique disponible sur demande!')}
+            >
+              Documentation
+            </button>
           </div>
         </div>
       </div>
@@ -212,7 +478,7 @@ export default function EasySavePage() {
       {/* Next project button */}
       <div className="w-full flex justify-center my-12">
         <button
-          onClick={() => window.location.href = "/plugins"}
+          onClick={() => window.location.href = "/breezy"}
           className="font-bold text-8xl transition-all duration-300 hover:border-white hover:border-2 hover:rounded-xl relative group"
           style={{
             background: "none",
@@ -229,7 +495,7 @@ export default function EasySavePage() {
               fontFamily: "inherit",
             }}
           >
-            AI.
+            Breezy.
           </span>
         </button>
       </div>
