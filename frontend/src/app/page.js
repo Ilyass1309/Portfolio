@@ -18,8 +18,7 @@ export default function Home() {
           Hi. I'm Ilyass.<br />A Developer
         </h1>
         <p className="mt-6 text-base sm:text-lg max-w-sm sm:max-w-xl text-neutral-600 text-center-description px-4 sm:px-0">
-          I'm passionate about crafting experiences that are engaging,
-          accessible, and user-centric.
+          Computer Engineering student and IT Analyst Apprentice at Continental, passionate about AI, software development, and creating innovative digital solutions.
         </p>
       </div>
 
