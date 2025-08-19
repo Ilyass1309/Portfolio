@@ -101,116 +101,11 @@ body {
   opacity: 0.7;
 }
 
-.card-wrap {
-  width: 520px;      /* Augmente la taille de la carte */
-  height: 520px;
-  background: #e3c8f9; 
-  border-radius: 48px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
-  padding: 0;
-  margin: 0; /* Supprime le centrage horizontal */
-  border: none;
-  transition:
-    transform 0.25s cubic-bezier(.34,1.56,.64,1),
-    box-shadow 0.25s cubic-bezier(.34,1.56,.64,1);
-}
-
-.card-wrap:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-}
-
-.card-wrap .info {
-  padding: 32px 36px 0 36px;
-  width: 100%;
-}
-
-.card-wrap .info span {
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  color: #7a6fa1;
-  font-weight: 600;
-}
-
-.card-wrap .info h2 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  margin: 0;
-  color: #232323;
-  letter-spacing: -0.01em;
-}
-
-.card-wrap .inner {
-  width: 100%;
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 36px;
-}
-
-.card-wrap .image-holder {
-  width: 90%;                /* Augmente la largeur de l'image */
-  aspect-ratio: 16/9;
-  background: #fff;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 32px;
-}
-
-.card-wrap .image-holder img,
-.card-wrap .image-holder figure > span {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  max-height: 240px;         /* Augmente la hauteur max de l'image */
-}
-
-.card-wrap:hover .image-holder img {
-  transform: scale(1.06);
-}
-
-.card-wrap .card-image-anim {
-  transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
-}
-
-.card-wrap:hover .card-image-anim {
-  transform: translateY(16px) scale(1.04); /* Descend moins et zoom moins */
-}
-
 .text-center-description {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
-.cards-row {
-  display: flex;
-  flex-direction: row;
-  gap: 3.5rem; 
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-@media (max-width: 600px) {
-  .cards-row {
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
 
 
