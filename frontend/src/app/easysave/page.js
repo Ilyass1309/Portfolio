@@ -5,14 +5,16 @@ export default function EasySavePage() {
     <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative page-enter">
       {/* Title */}
       <h1
-        className="font-extrabold text-center mb-2 flex justify-center items-center page-enter-delay-1"
+        className="font-extrabold text-center mb-2 flex justify-center items-center dtgetai-title page-enter-delay-1"
         style={{
-          fontSize: "110px",
-          width: "330px",
-          height: "105px",
-          margin: "10px auto 110px auto",
-          letterSpacing: "-2px",
+          fontSize: "clamp(48px, 8vw, 110px)",
+          width: "100%",
+          maxWidth: "900px",
+          height: "auto",
+          margin: "10px auto 60px auto",
+          letterSpacing: "clamp(-1px, -0.1vw, -2px)",
           color: "hsla(172, 95%, 18%, 1)",
+          lineHeight: "0.9",
         }}
       >
         EasySave
