@@ -17,18 +17,16 @@ function randomBetween(a, b) {
 }
 
 function createBlob(width, height) {
-	// Adaptation de la taille des bulles selon la largeur d'écran
+	// Bulles uniquement sur desktop (>1024px)
 	const screenWidth = width;
-	let baseRadius;
 	
-	if (screenWidth <= 640) { // Mobile
-		baseRadius = 120; // Bulles plus petites sur mobile
-	} else if (screenWidth <= 1024) { // Tablette
-		baseRadius = 160; // Taille intermédiaire
-	} else { // Desktop
-		baseRadius = 200; // Taille normale sur desktop
+	if (screenWidth <= 1024) {
+		// Pas de bulles sur mobile/tablette, retourner null ou un objet vide
+		return null;
 	}
 	
+	// Desktop uniquement - taille normale des bulles
+	const baseRadius = 200;
 	const radius = randomBetween(baseRadius * 0.6, baseRadius * 1.4); // variation de ±40%
 	
 	return {
@@ -36,7 +34,7 @@ function createBlob(width, height) {
 		y: randomBetween(radius, height * 0.7),
 		r: radius,
 		color: COLORS[Math.floor(Math.random() * COLORS.length)],
-		// Vitesse identique sur tous les appareils
+		// Vitesse sur desktop
 		dx: randomBetween(-0.08, 0.08),
 		dy: randomBetween(-0.06, 0.06),
 		alpha: randomBetween(0.35, 0.6),
@@ -52,12 +50,10 @@ function animateBlobs(canvas) {
 
 	// Fonction pour déterminer le nombre de bulles selon la taille d'écran
 	function getNumBlobs(screenWidth) {
-		if (screenWidth <= 640) { // Mobile
-			return 3; // Moins de bulles sur mobile
-		} else if (screenWidth <= 1024) { // Tablette
-			return 4; // Nombre intermédiaire
-		} else { // Desktop
-			return 6; // Nombre normal sur desktop
+		if (screenWidth <= 1024) { // Mobile et Tablette
+			return 0; // Pas de bulles sur mobile/tablette
+		} else { // Desktop uniquement
+			return 6; // Bulles uniquement sur desktop
 		}
 	}
 
@@ -68,7 +64,11 @@ function animateBlobs(canvas) {
 		canvas.height = height;
 		// Recalculer les bulles avec les nouvelles dimensions et le bon nombre
 		const numBlobs = getNumBlobs(width);
-		blobs = Array.from({ length: numBlobs }, () => createBlob(width, height));
+		if (numBlobs > 0) {
+			blobs = Array.from({ length: numBlobs }, () => createBlob(width, height));
+		} else {
+			blobs = []; // Pas de bulles sur mobile/tablette
+		}
 	}
 
 	function draw() {
