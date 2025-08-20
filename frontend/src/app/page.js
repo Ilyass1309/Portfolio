@@ -1,3 +1,5 @@
+import ProjectCard from "@/components/ProjectCard";
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-20 sm:pt-32 page-enter">
@@ -17,38 +19,52 @@ export default function Home() {
         >
           Hi. I'm Ilyass.<br />A Developer
         </h1>
-        <p className="mt-6 text-base sm:text-lg max-w-sm sm:max-w-xl text-neutral-600 text-center-description px-4 sm:px-0">
+        <p 
+          className="mt-12 sm:mt-16 text-base sm:text-lg max-w-sm sm:max-w-xl text-center-description px-4 sm:px-0"
+          style={{ color: "hsla(171, 15%, 35%, 1)" }}
+        >
           Computer Engineering student and IT Analyst Apprentice at Continental, passionate about AI, software development, and creating innovative digital solutions.
         </p>
       </div>
 
       {/* Section Projets */}
-      <section className="w-full max-w-5xl px-4 sm:px-6 mt-12 sm:mt-20 page-enter-delay-2">
-        <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">Mes Projets</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {/* Breezy */}
-          <a href="/breezy" className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center hover:scale-[1.03] transition-transform border border-neutral-200 group cursor-pointer no-underline">
-            <img src="/AI-tchat.png" alt="Breezy" className="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mb-3 sm:mb-4 shadow group-hover:opacity-90 transition-opacity" />
-            <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-blue-700 transition-colors text-center">Breezy</h3>
-            <p className="text-neutral-600 text-center mb-3 sm:mb-4 text-sm sm:text-base">Réseau social web inspiré de Twitter/X, permettant de partager des posts, suivre des utilisateurs et interagir en temps réel.</p>
-            <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">Web App</span>
-          </a>
-          {/* EasySave */}
-          <a href="/easysave" className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center hover:scale-[1.03] transition-transform border border-neutral-200 group cursor-pointer no-underline">
-            <img src="/backup2.png" alt="EasySave" className="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mb-3 sm:mb-4 shadow group-hover:opacity-90 transition-opacity" />
-            <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-green-700 transition-colors text-center">EasySave</h3>
-            <p className="text-neutral-600 text-center mb-3 sm:mb-4 text-sm sm:text-base">Logiciel de gestion de sauvegarde locale, simple et efficace pour protéger vos fichiers importants.</p>
-            <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">Software</span>
-          </a>
-          {/* IA Stratégie */}
-          <a href="/iastrategie" className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col items-center hover:scale-[1.03] transition-transform border border-neutral-200 group cursor-pointer no-underline">
-            <img src="/globe.svg" alt="Projet IA" className="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mb-3 sm:mb-4 shadow group-hover:opacity-90 transition-opacity" />
-            <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-purple-700 transition-colors text-center">IA Stratégie</h3>
-            <p className="text-neutral-600 text-center mb-3 sm:mb-4 text-sm sm:text-base">Projet d'apprentissage par IA sur un jeu de stratégie, explorant l'optimisation et la prise de décision autonome.</p>
-            <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-medium">IA / Jeu</span>
-          </a>
-        </div>
-      </section>
+      <section className="w-full max-w-5xl px-4 sm:px-6 mt-12 sm:mt-20 page-enter-delay-2 mx-auto">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
+        Mes Projets
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <ProjectCard
+          href="/breezy"
+          title="Breezy"
+          description="Réseau social web inspiré de Twitter/X, permettant de partager des posts, suivre des utilisateurs et interagir en temps réel."
+          tag="Web App"
+          tagColor="blue"
+          imgSrc="/AI-tchat.png"
+          imgAlt="Breezy"
+        />
+
+        <ProjectCard
+          href="/easysave"
+          title="EasySave"
+          description="Logiciel de gestion de sauvegarde locale, simple et efficace pour protéger vos fichiers importants."
+          tag="Software"
+          tagColor="green"
+          imgSrc="/backup2.png"
+          imgAlt="EasySave"
+        />
+
+        <ProjectCard
+          href="/iastrategie"
+          title="IA Stratégie"
+          description="Projet d'apprentissage par IA sur un jeu de stratégie, explorant l'optimisation et la prise de décision autonome."
+          tag="IA / Jeu"
+          tagColor="purple"
+          imgSrc="/globe.svg"
+          imgAlt="Projet IA"
+        />
+      </div>
+    </section>
 
       {/* Section contacts */}
       <footer className="w-full flex flex-col items-center mt-16 sm:mt-24 mb-8 px-4 page-enter-delay-3">

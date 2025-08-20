@@ -148,13 +148,13 @@ export default function EasySavePage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎯 Objectif</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Objectif</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
                 Développer une application de sauvegarde fiable et simple d'utilisation avec interface graphique moderne.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🏗️ Approche</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Approche</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
                 Développement itératif en 3 versions avec méthode Agile et livraisons progressives.
               </p>
@@ -171,42 +171,67 @@ export default function EasySavePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">💾</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M9 17H7A5 5 0 017 7h2m6 0v1a3 3 0 11-6 0V7a5 5 0 1110 0v1a2 2 0 01-2 2H9"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Sauvegarde complète</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Copie intégrale de tous les fichiers source vers la destination
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">⚡</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Sauvegarde différentielle</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Copie uniquement des fichiers modifiés depuis la dernière sauvegarde
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">⚙️</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Gestion des jobs</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Création, modification et exécution de tâches de sauvegarde multiples
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">🖥️</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10V9a2 2 0 012-2h2a2 2 0 012 2v8a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interface WPF</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Application desktop ergonomique avec barres de progression et logs
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">📊</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Journalisation</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Logs détaillés et journalisation complète des opérations
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">🔄</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-red-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Multi-jobs</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Exécution simultanée de plusieurs tâches configurables
@@ -280,7 +305,7 @@ export default function EasySavePage() {
               </div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🏗️ Architecture</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Architecture</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 <li>• Séparation logique métier / interface</li>
                 <li>• Pattern MVVM inspiré</li>
@@ -300,7 +325,7 @@ export default function EasySavePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>💻 Développement</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Développement</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 <li>• Implémentation sauvegarde différentielle</li>
                 <li>• Développement interface WPF</li>
@@ -309,7 +334,7 @@ export default function EasySavePage() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>📚 Documentation</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Documentation</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 <li>• Documentation technique</li>
                 <li>• Guide utilisateur</li>
@@ -329,19 +354,19 @@ export default function EasySavePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-gradient-to-r from-red-50 to-orange-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>⚡ Performance</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Performance</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Algorithmes optimisés pour copies rapides et comparaison efficace</p>
             </div>
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🔄 Différentiel</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Différentiel</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Comparaison intelligente par dates et tailles de fichiers</p>
             </div>
             <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎨 UX ergonomique</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>UX ergonomique</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Interface WPF intuitive avec feedback temps réel</p>
             </div>
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>👥 Organisation</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Organisation</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Méthode Agile avec user stories et itérations</p>
             </div>
           </div>
@@ -419,19 +444,19 @@ export default function EasySavePage() {
               </h2>
               <div className="space-y-4">
                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>📈 Sauvegarde incrémentale</h3>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Sauvegarde incrémentale</h3>
                   <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Encore plus fine que la différentielle</p>
                 </div>
                 <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>☁️ Intégration cloud</h3>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Intégration cloud</h3>
                   <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>OneDrive, Google Drive, AWS S3</p>
                 </div>
                 <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>⏰ Planifications</h3>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Planifications</h3>
                   <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Exécution automatique programmée</p>
                 </div>
                 <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎨 UI moderne</h3>
+                  <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>UI moderne</h3>
                   <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Interface Material Design</p>
                 </div>
               </div>

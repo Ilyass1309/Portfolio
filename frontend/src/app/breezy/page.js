@@ -135,7 +135,13 @@ export default function BreezyPage() {
           }}
         >
           <div className="text-center" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            <div className="text-6xl mb-4">📱</div>
+            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center">
+              <svg width="40" height="40" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                <path stroke="currentColor" strokeWidth="1.5" d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path stroke="currentColor" strokeWidth="1.5" d="M2 17l10 5 10-5"/>
+                <path stroke="currentColor" strokeWidth="1.5" d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
             <h3 className="text-2xl font-semibold mb-2">Interface Breezy</h3>
             <p className="text-lg">Screenshots & démo à venir</p>
           </div>
@@ -151,13 +157,13 @@ export default function BreezyPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🎯 Objectifs</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Objectifs</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
                 Créer une plateforme sociale légère et performante avec une architecture moderne et évolutive.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🚀 Déploiement</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Déploiement</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
                 Application entièrement conteneurisée et déployée sur AWS EC2 avec Docker Compose.
               </p>
@@ -174,42 +180,68 @@ export default function BreezyPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">👤</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5"/>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Comptes utilisateurs</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Création et connexion sécurisée avec JWT et cookies HttpOnly
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">📝</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M3 7h18l-1 10H4L3 7zm0 0L2 3h2m16 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Publications</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Messages courts (Breezes), système de tags (#), ajout d'images
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">❤️</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-red-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interactions</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Likes, commentaires (Breaths), système d'abonnements
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">💬</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Messagerie privée</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Conversations entre utilisateurs, édition et suppression
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">🔔</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M15 17h5l-5-5 5-5h-5m-6 10l5-5-5-5"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Notifications</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Notifications en temps réel (publications, likes, messages)
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <div className="text-3xl mb-3">🎨</div>
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-lg flex items-center justify-center mb-3">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h10a2 2 0 012 2v12a4 4 0 01-4 4H7z"/>
+                  <path stroke="currentColor" strokeWidth="1.5" d="M7 3v18"/>
+                </svg>
+              </div>
               <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interface</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 Design responsive, multilingue, thèmes personnalisables
@@ -230,27 +262,27 @@ export default function BreezyPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🔐 Auth Service</h3>
+              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Auth Service</h3>
               <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>JWT, refresh tokens, sécurité</p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>👥 User Service</h3>
+              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>User Service</h3>
               <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Gestion des profils utilisateurs</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>📄 Post Service</h3>
+              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Post Service</h3>
               <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Breezes, création, affichage, tags</p>
             </div>
             <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>💬 Message Service</h3>
+              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Message Service</h3>
               <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Messagerie privée, conversations</p>
             </div>
             <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🔔 Notification Service</h3>
+              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Notification Service</h3>
               <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Notifications temps réel</p>
             </div>
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🌐 API Gateway</h3>
+              <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>API Gateway</h3>
               <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Nginx, point d'entrée unique</p>
             </div>
           </div>
@@ -312,7 +344,7 @@ export default function BreezyPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🔄 Approche Agile</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Approche Agile</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 <li>• Backlog structuré</li>
                 <li>• Daily meetings</li>
@@ -321,7 +353,7 @@ export default function BreezyPage() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>👥 Collaboration</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Collaboration</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
                 <li>• Répartition frontend/backend</li>
                 <li>• Collaboration continue</li>
@@ -341,19 +373,19 @@ export default function BreezyPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🔄 Temps réel</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Temps réel</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Support complet via WebSockets</p>
             </div>
             <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>📷 Médias</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Médias</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Photos/vidéos dans les Breezes</p>
             </div>
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>🛡️ Modération</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Modération</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Outils d'administration avancés</p>
             </div>
             <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>@ Mentions</h3>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Mentions</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Système de mentions utilisateur</p>
             </div>
           </div>
