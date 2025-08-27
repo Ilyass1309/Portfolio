@@ -558,7 +558,7 @@ export default function BreezyPage() {
           </h2>
           <div className="flex flex-row gap-6">
             <a
-              href="https://github.com/TheoCvg/breezy-app"
+              href="https://github.com/IsAy15/DAD-Equipe-6"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg font-semibold text-white shadow transition hover:scale-105"
