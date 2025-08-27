@@ -2,38 +2,59 @@
 
 import "../../../public/fonts/gastroe.css";
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 export default function BreezyPage() {
   const screenshots = [
     { src: "/breezy/page-accueil.png", title: "Page d'accueil", description: "Flux principal et navigation" },
     { src: "/breezy/messagerie.png", title: "Messagerie", description: "Conversations privées entre utilisateurs" },
-    { src: "/breezy/conversation.png", title: "Conversation", description: "Fil d'échange avec édition" },
+    { src: "/breezy/conversation.png", title: "Conversation", description: "Fil d'échange en temps réel" },
     { src: "/breezy/notification.png", title: "Notifications", description: "Alertes en temps réel" },
-    { src: "/breezy/ecrire-commentaire.png", title: "Commentaires", description: "Ajout d'un Breath sous un Breeze" },
-    { src: "/breezy/liste-commentaires.png", title: "Liste des commentaires", description: "Thread de réponses hiérarchisé" },
+    { src: "/breezy/ecrire-commentaire.png", title: "Commentaires", description: "Ajout d'un commentaire sous un Breeze" },
+    { src: "/breezy/liste-commentaires.png", title: "Profil", description: "Informations et activités de l'utilisateur" },
     { src: "/breezy/recherche-profil.png", title: "Recherche & Profil", description: "Exploration et profils utilisateurs" },
     { src: "/breezy/langues-disponibles.png", title: "Multilingue", description: "Sélection dynamique des langues" },
     { src: "/breezy/themes-disponibles.png", title: "Thèmes", description: "Personnalisation de l'apparence" },
-    { src: "/breezy/breezer.png", title: "Logo Breezer", description: "Identité visuelle de la marque" },
+    { src: "/breezy/breezer.png", title: "Commenter un post", description: "Interface de commentaire pour les utilisateurs" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null); // number | null
+  const galleryRef = useRef(null);
 
   const closeLightbox = useCallback(() => setActiveIndex(null), []);
   const showPrev = useCallback(() => setActiveIndex((i) => (i === null ? null : (i - 1 + screenshots.length) % screenshots.length)), [screenshots.length]);
   const showNext = useCallback(() => setActiveIndex((i) => (i === null ? null : (i + 1) % screenshots.length)), [screenshots.length]);
 
+  // Keyboard + body scroll lock for lightbox
   useEffect(() => {
-    if (activeIndex === null) return;
+    if (activeIndex === null) {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      return;
+    }
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
     const handleKey = (e) => {
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowLeft") showPrev();
       if (e.key === "ArrowRight") showNext();
     };
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
   }, [activeIndex, closeLightbox, showPrev, showNext]);
+
+  // Auto-scroll to gallery when arriving on the page (only if user is near top)
+  useEffect(() => {
+    if (!galleryRef.current) return;
+    if (window.scrollY > 120) return; // don't force scroll if user already moved
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const top = galleryRef.current.getBoundingClientRect().top + window.scrollY - 80; // offset for sticky nav if any
+    window.scrollTo({ top, behavior: prefersReduced ? 'auto' : 'smooth' });
+  }, []);
   return (
     <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative page-enter">
       {/* Title */}
@@ -154,7 +175,7 @@ export default function BreezyPage() {
       </div>
 
       {/* Gallery section */}
-      <section className="w-full flex flex-col items-center my-16 page-enter-delay-2">
+  <section ref={galleryRef} id="breezy-gallery" className="w-full flex flex-col items-center my-16 page-enter-delay-2">
         <div className="max-w-6xl w-full">
           <h2 className="text-4xl font-bold mb-8 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
             Galerie d'écrans
