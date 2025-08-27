@@ -3,6 +3,7 @@
 import "../../../public/fonts/gastroe.css";
 import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
+import { createPortal } from "react-dom";
 
 export default function BreezyPage() {
   const screenshots = [
@@ -20,6 +21,8 @@ export default function BreezyPage() {
 
   const [activeIndex, setActiveIndex] = useState(null); // number | null
   const galleryRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const closeLightbox = useCallback(() => setActiveIndex(null), []);
   const showPrev = useCallback(() => setActiveIndex((i) => (i === null ? null : (i - 1 + screenshots.length) % screenshots.length)), [screenshots.length]);
@@ -235,10 +238,10 @@ export default function BreezyPage() {
         </div>
       </section>
 
-      {/* Lightbox */}
-      {activeIndex !== null && (
+      {/* Lightbox via portal (évite les problèmes de transform sur le parent) */}
+      {mounted && activeIndex !== null && createPortal(
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/80 animate-fadeIn"
+          className="fixed inset-0 z-[9999] flex items-center justify-center backdrop-blur-sm bg-black/80 animate-fadeIn"
           role="dialog"
           aria-modal="true"
         >
@@ -247,7 +250,7 @@ export default function BreezyPage() {
             aria-label="Fermer"
             onClick={closeLightbox}
           />
-          <div className="relative max-w-6xl w-[95%] mx-auto">
+          <div className="relative max-w-6xl w-[95%] mx-auto" onClick={(e)=>e.stopPropagation()}>
             <div className="relative rounded-xl overflow-hidden ring-1 ring-white/20 shadow-2xl bg-neutral-900">
               <Image
                 src={screenshots[activeIndex].src}
@@ -265,7 +268,7 @@ export default function BreezyPage() {
             {/* Controls */}
             <div className="absolute -left-4 top-1/2 -translate-y-1/2 hidden md:flex">
               <button
-                onClick={(e) => { e.stopPropagation(); showPrev(); }}
+                onClick={showPrev}
                 aria-label="Précédent"
                 className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
               >
@@ -274,7 +277,7 @@ export default function BreezyPage() {
             </div>
             <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:flex">
               <button
-                onClick={(e) => { e.stopPropagation(); showNext(); }}
+                onClick={showNext}
                 aria-label="Suivant"
                 className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
               >
@@ -282,7 +285,7 @@ export default function BreezyPage() {
               </button>
             </div>
             <button
-              onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+              onClick={closeLightbox}
               aria-label="Fermer"
               className="absolute -top-4 right-0 md:-right-4 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
             >
@@ -292,15 +295,15 @@ export default function BreezyPage() {
               {screenshots.map((_, i) => (
                 <button
                   key={i}
-                  onClick={(e) => { e.stopPropagation(); setActiveIndex(i); }}
+                  onClick={() => setActiveIndex(i)}
                   aria-label={`Aller à ${i + 1}`}
                   className={`w-2.5 h-2.5 rounded-full transition ${i === activeIndex ? 'bg-[hsla(172,95%,55%,1)] scale-110' : 'bg-white/30 hover:bg-white/60'}`}
                 />
               ))}
             </div>
           </div>
-        </div>
-      )}
+        </div>, document.body)
+      }
 
       {/* Overview section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-2">
