@@ -22,6 +22,7 @@ export default function BreezyPage() {
   const [activeIndex, setActiveIndex] = useState(null); // number | null
   const galleryRef = useRef(null);
   const [mounted, setMounted] = useState(false);
+  const [trialNoticeOpen, setTrialNoticeOpen] = useState(false);
   useEffect(() => setMounted(true), []);
 
   const closeLightbox = useCallback(() => setActiveIndex(null), []);
@@ -568,10 +569,9 @@ export default function BreezyPage() {
             >
               View on GitHub
             </a>
-            <a
-              href="https://breezy-dad-6-dlsz.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => setTrialNoticeOpen(true)}
               className="relative inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white shadow transition hover:scale-105 focus:outline-none focus-visible:ring-4"
               style={{
                 background: "hsla(172, 95%, 18%, 1)",
@@ -584,10 +584,53 @@ export default function BreezyPage() {
                 <path d="M7 17L17 7" />
                 <path d="M7 7h10v10" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Trial notice modal */}
+      {mounted && trialNoticeOpen && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="trial-title">
+          <div className="relative w-full max-w-lg rounded-2xl shadow-xl ring-1 ring-white/10 bg-white text-[hsla(172,95%,18%,1)] dark:bg-neutral-900 dark:text-white overflow-hidden animate-fadeIn">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[hsla(172,95%,18%,1)] via-teal-400 to-emerald-500" />
+            <div className="p-6 sm:p-8">
+              <h3 id="trial-title" className="text-2xl font-bold mb-4 dtgetai-title">Avant de continuer</h3>
+              <p className="leading-relaxed text-sm sm:text-base mb-4">
+                Le premier chargement peut durer jusqu'à une à deux minutes si l'infrastructure est sortie de veille (réveil des conteneurs / cold start). C'est normal : reste sur la page ouverte et le service se lancera automatiquement.
+              </p>
+              <ul className="text-xs sm:text-sm mb-5 space-y-1 opacity-80 list-disc pl-5">
+                <li>Ne rafraîchis pas plusieurs fois.</li>
+                <li>Une fois réveillé, l'app sera réactive.</li>
+              </ul>
+              <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
+                <button
+                  onClick={() => setTrialNoticeOpen(false)}
+                  className="px-4 py-2 rounded-lg font-medium border border-[hsla(172,95%,18%,0.4)] text-[hsla(172,95%,18%,1)] hover:bg-[hsla(172,95%,18%,0.05)] focus:outline-none focus-visible:ring-4"
+                >
+                  Annuler
+                </button>
+                <button
+                  onClick={() => {
+                    setTrialNoticeOpen(false);
+                    window.open("https://breezy-dad-6-dlsz.vercel.app/", "_blank", "noopener,noreferrer");
+                  }}
+                  className="px-5 py-2.5 rounded-lg font-semibold text-white shadow hover:scale-[1.02] transition focus:outline-none focus-visible:ring-4"
+                  style={{ background: 'hsla(172,95%,18%,1)' }}
+                >
+                  Continuer vers l'app ↗
+                </button>
+              </div>
+            </div>
+            <button
+              onClick={() => setTrialNoticeOpen(false)}
+              aria-label="Fermer"
+              className="absolute top-2 right-2 w-9 h-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>, document.body)}
 
       {/* Next project button */}
       <div className="w-full flex justify-center my-12">
