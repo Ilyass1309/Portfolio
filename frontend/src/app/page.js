@@ -1,3 +1,4 @@
+"use client";
 import ProjectCard from "@/components/ProjectCard";
 import { useState } from "react";
 
