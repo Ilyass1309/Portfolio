@@ -1,6 +1,8 @@
 import ProjectCard from "@/components/ProjectCard";
+import { useState } from "react";
 
 export default function Home() {
+  const [iaModalOpen, setIaModalOpen] = useState(false);
   return (
     <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-20 sm:pt-32 page-enter">
       <div className="text-center px-4 sm:px-6 page-enter-delay-1">
@@ -55,7 +57,8 @@ export default function Home() {
         />
 
         <ProjectCard
-          href="/iastrategie"
+          href="#"
+          onClick={(e) => { e.preventDefault(); setIaModalOpen(true); }}
           title="IA Stratégie"
           description="Projet d'apprentissage par IA sur un jeu de stratégie, explorant l'optimisation et la prise de décision autonome."
           tag="IA / Jeu"
@@ -65,6 +68,42 @@ export default function Home() {
         />
       </div>
     </section>
+    {iaModalOpen && (
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" role="dialog" aria-modal="true">
+        <div className="relative w-full max-w-md rounded-2xl shadow-xl ring-1 ring-black/10 dark:ring-white/10 bg-white dark:bg-neutral-900 overflow-hidden animate-fadeIn">
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-emerald-500" />
+          <div className="p-6 sm:p-7">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 text-neutral-900 dark:text-white">En cours de développement</h3>
+            <p className="text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300 mb-5">
+              Ce projet <strong>IA Stratégie</strong> est actuellement en construction. Je travaille sur l'entraînement d'un agent de décision (recherche, heuristiques & RL) et la visualisation interactive.<br className="hidden sm:block" />
+              Reviens bientôt pour la page détaillée et la démo.
+            </p>
+            <div className="flex flex-col sm:flex-row sm:justify-end gap-3">
+              <button
+                onClick={() => setIaModalOpen(false)}
+                className="px-4 py-2.5 rounded-lg font-medium border border-neutral-300 dark:border-neutral-600 text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-800 focus:outline-none focus-visible:ring-4"
+              >
+                Fermer
+              </button>
+              <button
+                onClick={() => { setIaModalOpen(false); window.location.href = '/breezy'; }}
+                className="px-5 py-2.5 rounded-lg font-semibold text-white shadow hover:scale-[1.02] transition focus:outline-none focus-visible:ring-4"
+                style={{ background: 'hsla(172,95%,18%,1)' }}
+              >
+                Voir un autre projet
+              </button>
+            </div>
+          </div>
+          <button
+            onClick={() => setIaModalOpen(false)}
+            aria-label="Fermer"
+            className="absolute top-2 right-2 w-9 h-9 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 focus:outline-none"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    )}
 
       {/* Section contacts */}
       <footer className="w-full flex flex-col items-center mt-16 sm:mt-24 mb-8 px-4 page-enter-delay-3">
@@ -81,6 +120,6 @@ export default function Home() {
         </div>
         <div className="mt-2 text-neutral-500 text-xs sm:text-sm text-center">Find me on LinkedIn, GitHub or download my resume</div>
       </footer>
-    </main>
+  </main>
   );
 }

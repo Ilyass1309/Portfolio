@@ -15,11 +15,13 @@ export default function ProjectCard({
   tagColor = "blue",
   imgSrc,
   imgAlt,
+  onClick,
 }) {
   return (
     <Link
       href={href}
       aria-label={title}
+      onClick={onClick}
       className="
         group relative rounded-3xl no-underline
         bg-white/80 dark:bg-neutral-900/60
