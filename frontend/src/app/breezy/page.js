@@ -530,14 +530,6 @@ export default function BreezyPage() {
             Améliorations futures
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Temps réel</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Support complet via WebSockets</p>
-            </div>
-            <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Médias</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Photos/vidéos dans les Breezes</p>
-            </div>
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Modération</h3>
               <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Outils d'administration avancés</p>
