@@ -568,18 +568,20 @@ export default function BreezyPage() {
             >
               View on GitHub
             </a>
-            <button
-              className="px-6 py-3 rounded-lg font-semibold shadow transition hover:scale-105 border-2"
+            <a
+              href="https://breezy-dad-6-dlsz.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-lg font-semibold shadow transition hover:scale-105 border-2 focus:outline-none focus-visible:ring-4"
               style={{
-                background: "transparent",
+                background: "linear-gradient(90deg, hsla(172,95%,18%,0.05), hsla(172,95%,18%,0.15))",
                 color: "hsla(172, 95%, 18%, 1)",
                 borderColor: "hsla(172, 95%, 18%, 1)",
                 fontSize: "18px",
               }}
-              onClick={() => alert('Démo bientôt disponible!')}
             >
-              Live Demo (Soon)
-            </button>
+              Essayer en ligne ↗
+            </a>
           </div>
         </div>
       </div>
