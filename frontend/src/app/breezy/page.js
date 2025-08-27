@@ -1,8 +1,39 @@
 "use client"
 
 import "../../../public/fonts/gastroe.css";
+import Image from "next/image";
+import { useState, useEffect, useCallback } from "react";
 
 export default function BreezyPage() {
+  const screenshots = [
+    { src: "/breezy/page-accueil.png", title: "Page d'accueil", description: "Flux principal et navigation" },
+    { src: "/breezy/messagerie.png", title: "Messagerie", description: "Conversations privées entre utilisateurs" },
+    { src: "/breezy/conversation.png", title: "Conversation", description: "Fil d'échange avec édition" },
+    { src: "/breezy/notification.png", title: "Notifications", description: "Alertes en temps réel" },
+    { src: "/breezy/ecrire-commentaire.png", title: "Commentaires", description: "Ajout d'un Breath sous un Breeze" },
+    { src: "/breezy/liste-commentaires.png", title: "Liste des commentaires", description: "Thread de réponses hiérarchisé" },
+    { src: "/breezy/recherche-profil.png", title: "Recherche & Profil", description: "Exploration et profils utilisateurs" },
+    { src: "/breezy/langues-disponibles.png", title: "Multilingue", description: "Sélection dynamique des langues" },
+    { src: "/breezy/themes-disponibles.png", title: "Thèmes", description: "Personnalisation de l'apparence" },
+    { src: "/breezy/breezer.png", title: "Logo Breezer", description: "Identité visuelle de la marque" },
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(null); // number | null
+
+  const closeLightbox = useCallback(() => setActiveIndex(null), []);
+  const showPrev = useCallback(() => setActiveIndex((i) => (i === null ? null : (i - 1 + screenshots.length) % screenshots.length)), [screenshots.length]);
+  const showNext = useCallback(() => setActiveIndex((i) => (i === null ? null : (i + 1) % screenshots.length)), [screenshots.length]);
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+    const handleKey = (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [activeIndex, closeLightbox, showPrev, showNext]);
   return (
     <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative page-enter">
       {/* Title */}
@@ -122,31 +153,133 @@ export default function BreezyPage() {
         </p>
       </div>
 
-      {/* Main interface preview */}
-      <div className="w-full flex justify-center items-center my-16 page-enter-delay-2">
-        <div
-          className="bg-neutral-100 rounded-2xl shadow-lg flex justify-center items-center border-2 border-dashed"
-          style={{
-            width: "1200px",
-            height: "650px",
-            minHeight: "400px",
-            overflow: "hidden",
-            borderColor: "hsla(172, 95%, 18%, 0.3)",
-          }}
-        >
-          <div className="text-center" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center">
-              <svg width="40" height="40" fill="none" viewBox="0 0 24 24" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-                <path stroke="currentColor" strokeWidth="1.5" d="M12 2L2 7l10 5 10-5-10-5z"/>
-                <path stroke="currentColor" strokeWidth="1.5" d="M2 17l10 5 10-5"/>
-                <path stroke="currentColor" strokeWidth="1.5" d="M2 12l10 5 10-5"/>
-              </svg>
+      {/* Gallery section */}
+      <section className="w-full flex flex-col items-center my-16 page-enter-delay-2">
+        <div className="max-w-6xl w-full">
+          <h2 className="text-4xl font-bold mb-8 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
+            Galerie d'écrans
+          </h2>
+          {/* Hero image */}
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-lg ring-1 ring-[hsla(172,95%,18%,0.3)] mb-10 group">
+            <Image
+              src={screenshots[0].src}
+              alt={screenshots[0].title}
+              width={1920}
+              height={1080}
+              priority
+              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 p-6 text-white">
+              <h3 className="text-2xl font-semibold mb-1">{screenshots[0].title}</h3>
+              <p className="text-sm opacity-90">{screenshots[0].description}</p>
             </div>
-            <h3 className="text-2xl font-semibold mb-2">Interface Breezy</h3>
-            <p className="text-lg">Screenshots & démo à venir</p>
+            <button
+              onClick={() => setActiveIndex(0)}
+              aria-label="Voir l'image en grand"
+              className="absolute inset-0 focus:outline-none focus-visible:ring-4 ring-white/50"
+              style={{ background: "linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0))", opacity: 0 }}
+            />
+          </div>
+
+          {/* Grid */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {screenshots.slice(1).map((shot, idx) => (
+              <button
+                key={shot.src}
+                onClick={() => setActiveIndex(idx + 1)}
+                className="group relative rounded-xl overflow-hidden shadow-md bg-neutral-50 ring-1 ring-[hsla(172,95%,18%,0.15)] hover:ring-[hsla(172,95%,18%,0.4)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[hsla(172,95%,18%,0.5)]"
+                aria-label={`Ouvrir : ${shot.title}`}
+              >
+                <div className="relative w-full pb-[60%]">
+                  <Image
+                    src={shot.src}
+                    alt={shot.title}
+                    fill
+                    sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-70 group-hover:opacity-60 transition" />
+                  <div className="absolute bottom-0 left-0 p-3 text-white text-left">
+                    <h4 className="font-semibold text-sm leading-tight">{shot.title}</h4>
+                    <p className="text-[11px] opacity-90 line-clamp-2">{shot.description}</p>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+          <p className="text-sm mt-6 text-center" style={{ color: "hsla(172, 95%, 18%, 0.7)" }}>
+            Cliquez sur une capture pour l'agrandir. Navigation clavier : ← → Échap.
+          </p>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {activeIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/80 animate-fadeIn"
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            className="absolute inset-0 cursor-zoom-out"
+            aria-label="Fermer"
+            onClick={closeLightbox}
+          />
+          <div className="relative max-w-6xl w-[95%] mx-auto">
+            <div className="relative rounded-xl overflow-hidden ring-1 ring-white/20 shadow-2xl bg-neutral-900">
+              <Image
+                src={screenshots[activeIndex].src}
+                alt={screenshots[activeIndex].title}
+                width={1920}
+                height={1080}
+                className="w-full h-auto object-contain max-h-[80vh]"
+                priority
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                <h4 className="text-lg font-semibold">{screenshots[activeIndex].title}</h4>
+                <p className="text-xs opacity-90">{screenshots[activeIndex].description}</p>
+              </div>
+            </div>
+            {/* Controls */}
+            <div className="absolute -left-4 top-1/2 -translate-y-1/2 hidden md:flex">
+              <button
+                onClick={(e) => { e.stopPropagation(); showPrev(); }}
+                aria-label="Précédent"
+                className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
+              >
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+            </div>
+            <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:flex">
+              <button
+                onClick={(e) => { e.stopPropagation(); showNext(); }}
+                aria-label="Suivant"
+                className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
+              >
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+            <button
+              onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+              aria-label="Fermer"
+              className="absolute -top-4 right-0 md:-right-4 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+              {screenshots.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setActiveIndex(i); }}
+                  aria-label={`Aller à ${i + 1}`}
+                  className={`w-2.5 h-2.5 rounded-full transition ${i === activeIndex ? 'bg-[hsla(172,95%,55%,1)] scale-110' : 'bg-white/30 hover:bg-white/60'}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Overview section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-2">
