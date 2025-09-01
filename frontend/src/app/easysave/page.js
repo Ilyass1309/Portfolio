@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 import { createPortal } from "react-dom";
 
 export default function EasySavePage() {
+  const { lang } = useLanguage();
+  const tr = (fr, en) => (lang === 'fr' ? fr : en);
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative page-enter">
@@ -21,19 +24,19 @@ export default function EasySavePage() {
           lineHeight: "0.9",
         }}
       >
-        EasySave
+  EasySave
       </h1>
 
       {/* Main grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 w-full max-w-2xl page-enter-delay-1">
         {/* Timeline */}
         <div className="flex flex-col items-center">
-          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Timeline</div>
+          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{tr('Chronologie', 'Timeline')}</div>
           <div className="rounded-full px-4 py-2 text-neutral-700" style={{ color: "hsla(172, 95%, 18%, 1)" }}>2024</div>
         </div>
         {/* Team */}
         <div className="flex flex-col items-center">
-          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Team</div>
+          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{tr('Équipe', 'Team')}</div>
           <div className="flex gap-2">
             <a href="https://github.com/paulin-dev" target="_blank" rel="noopener noreferrer" className="relative group">
               <span
@@ -109,9 +112,9 @@ export default function EasySavePage() {
         </div>
         {/* Role */}
         <div className="flex flex-col items-center">
-          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Role</div>
+          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{tr('Rôle', 'Role')}</div>
           <div className="rounded-full px-4 py-2 text-neutral-700 text-center" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Software Engineer, UI Designer
+            {tr('Ingénieur Logiciel, UI Designer', 'Software Engineer, UI Designer')}
             <br />
           </div>
         </div>
@@ -120,7 +123,7 @@ export default function EasySavePage() {
       {/* Brief description */}
       <div className="w-full flex justify-center items-center my-8 page-enter-delay-1">
         <p className="text-center text-xl max-w-4xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-          Application de sauvegarde complète et différentielle développée en <strong>C# WPF</strong> pour ProSoft, offrant une interface ergonomique et des fonctionnalités avancées de gestion de données.
+          {tr("Application de sauvegarde complète et différentielle développée en ", "Full and differential backup application built in ")}<strong>C# WPF</strong>{tr(" pour ProSoft, offrant une interface ergonomique et des fonctionnalités avancées de gestion de données.", ' for ProSoft, providing an ergonomic interface and advanced data management features.')}
         </p>
       </div>
 
@@ -146,21 +149,21 @@ export default function EasySavePage() {
       {/* Overview section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-2">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{tr('Aperçu', 'Overview')}</h2>
           <p className="text-xl leading-relaxed mb-6" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            EasySave est un projet scolaire développé en équipe de 4 personnes pour ProSoft, visant à créer un logiciel de sauvegarde de fichiers sous Windows. L'application propose une solution complète avec interface WPF ergonomique, gestion des sauvegardes différentielles et fonctionnalités avancées de journalisation.
+            {tr("EasySave est un projet scolaire développé en équipe de 4 personnes pour ProSoft, visant à créer un logiciel de sauvegarde de fichiers sous Windows. L'application propose une solution complète avec interface WPF ergonomique, gestion des sauvegardes différentielles et fonctionnalités avancées de journalisation.", "EasySave is a school project built by a team of 4 for ProSoft, aiming to create a Windows file backup tool with an ergonomic WPF UI, differential backups and advanced logging.")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Objectif</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{tr('Objectif', 'Goal')}</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-                Développer une application de sauvegarde fiable et simple d'utilisation avec interface graphique moderne.
+                {tr("Développer une application de sauvegarde fiable et simple d'utilisation avec interface graphique moderne.", 'Develop a reliable, user-friendly backup application with a modern GUI.')}
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Approche</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{tr('Approche', 'Approach')}</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-                Développement itératif en 3 versions avec méthode Agile et livraisons progressives.
+                {tr('Développement itératif en 3 versions avec méthode Agile et livraisons progressives.', 'Iterative development in 3 versions using Agile and incremental deliveries.')}
               </p>
             </div>
           </div>

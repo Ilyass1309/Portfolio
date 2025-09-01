@@ -1,17 +1,23 @@
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function About() {
+  const { t, lang } = useLanguage();
   return (
     <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-32 px-4 page-enter">
       <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start gap-12 page-enter-delay-1">
         {/* Texte à gauche */}
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-5xl font-bold mb-6">I'm Ilyass</h1>
+          <h1 className="text-5xl font-bold mb-6">{lang === 'fr' ? "Je suis Ilyass" : "I'm Ilyass"}</h1>
           <p className="text-lg text-neutral-600 mb-6">
-            I'm an apprentice analyst and developer based in Toulouse, France. I'm working at Continental Automotive above my studies, where I focus on creating innovative software solutions that enhance user experiences and improve efficiency.
+            {lang === 'fr'
+              ? "Je suis apprenti analyste et développeur basé à Toulouse (France). Je travaille chez Continental Automotive en parallèle de mes études, où je conçois des solutions logicielles innovantes."
+              : "I'm an apprentice analyst and developer based in Toulouse, France. I work at Continental Automotive alongside my studies, building innovative software solutions."}
           </p>
           <p className="text-lg text-neutral-600">
-            I’m passionate about creating digital experiences that are beautiful, functional, and accessible to everyone. When I’m not designing or coding, you’ll find me exploring the outdoors or playing guitar.
+            {lang === 'fr'
+              ? "Je suis passionné par la création d'expériences numériques belles, fonctionnelles et accessibles. En dehors du code, j'aime explorer la nature ou jouer de la guitare."
+              : "I'm passionate about crafting digital experiences that are beautiful, functional, and accessible. Outside of coding, I enjoy exploring outdoors or playing guitar."}
           </p>
         </div>
         {/* Image à droite */}
@@ -30,35 +36,35 @@ export default function About() {
       </div>
       {/* Section Éducation & Expérience */}
       <div className="mt-8 sm:mt-12 w-full max-w-4xl page-enter-delay-2">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">Education & Experience</h2>
+  <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">{lang === 'fr' ? 'Éducation & Expérience' : 'Education & Experience'}</h2>
         <ol className="relative border-l-2 border-neutral-200 pl-2 sm:pl-0">
           {/* Expérience 1 */}
           <li className="mb-6 sm:mb-10 ml-4 sm:ml-6">
             <span className="absolute -left-2.5 sm:-left-3 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-blue-200 rounded-full ring-4 sm:ring-8 ring-white"></span>
             <h3 className="text-base sm:text-lg font-bold">Continental Automotive</h3>
-            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2024 - Present · Apprentice Analyst & Developer</span>
-            <p className="text-neutral-600 text-sm sm:text-base">Developing innovative software solutions for automotive applications.</p>
+            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2024 - {lang === 'fr' ? 'Présent' : 'Present'} · {lang === 'fr' ? 'Apprenti Analyste & Développeur' : 'Apprentice Analyst & Developer'}</span>
+            <p className="text-neutral-600 text-sm sm:text-base">{lang === 'fr' ? 'Développement de solutions logicielles innovantes (applications automobiles).' : 'Developing innovative software solutions for automotive applications.'}</p>
           </li>
           {/* Expérience 2 */}
           <li className="mb-6 sm:mb-10 ml-4 sm:ml-6">
             <span className="absolute -left-2.5 sm:-left-3 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-green-200 rounded-full ring-4 sm:ring-8 ring-white"></span>
             <h3 className="text-base sm:text-lg font-bold">CESI Toulouse</h3>
-            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2024 - 2027 · Engineering School</span>
-            <p className="text-neutral-600 text-sm sm:text-base">Studying computer science and engineering.</p>
+            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2024 - 2027 · {lang === 'fr' ? 'École d\'ingénieurs' : 'Engineering School'}</span>
+            <p className="text-neutral-600 text-sm sm:text-base">{lang === 'fr' ? 'Études en informatique et ingénierie.' : 'Studying computer science and engineering.'}</p>
           </li>
           {/* Expérience 3 */}
           <li className="mb-6 sm:mb-10 ml-4 sm:ml-6">
             <span className="absolute -left-2.5 sm:-left-3 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-yellow-200 rounded-full ring-4 sm:ring-8 ring-white"></span>
-            <h3 className="text-base sm:text-lg font-bold">University of Toulouse</h3>
-            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2021 - 2023 · Mathematical and Computer Science dual degree </span>
-            <p className="text-neutral-600 text-sm sm:text-base">Tree-year technical degree in computer science and mathematics.</p>
+            <h3 className="text-base sm:text-lg font-bold">{lang === 'fr' ? 'Université de Toulouse' : 'University of Toulouse'}</h3>
+            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2021 - 2023 · {lang === 'fr' ? 'Double cursus Mathématiques & Informatique' : 'Mathematical & Computer Science dual degree'}</span>
+            <p className="text-neutral-600 text-sm sm:text-base">{lang === 'fr' ? 'Diplôme technique en informatique et mathématiques.' : 'Technical degree in computer science and mathematics.'}</p>
           </li>
           {/* Expérience 4 */}
           <li className="mb-6 sm:mb-10 ml-4 sm:ml-6">
             <span className="absolute -left-2.5 sm:-left-3 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-purple-200 rounded-full ring-4 sm:ring-8 ring-white"></span>
-            <h3 className="text-base sm:text-lg font-bold">IRIT – Toulouse Institute of Computer Science Research</h3>
-            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2021 · Internship</span>
-            <p className="text-neutral-600 text-sm sm:text-base">Developed an analysis tool using eye-tracking to evaluate keyboard performance.</p>
+            <h3 className="text-base sm:text-lg font-bold">IRIT – {lang === 'fr' ? 'Institut de Recherche en Informatique de Toulouse' : 'CS Research Institute (Toulouse)'}</h3>
+            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2021 · {lang === 'fr' ? 'Stage' : 'Internship'}</span>
+            <p className="text-neutral-600 text-sm sm:text-base">{lang === 'fr' ? 'Développement d\'un outil d\'analyse par eye-tracking pour évaluer des claviers.' : 'Built an eye‑tracking analysis tool to evaluate keyboard performance.'}</p>
           </li>
         </ol>
       </div>
@@ -109,7 +115,7 @@ export default function About() {
           </a>
         </div>
         <div className="mt-2 text-neutral-500 text-xs sm:text-sm text-center">
-          Find me on LinkedIn, GitHub or download my resume
+          {lang === 'fr' ? 'Retrouve-moi sur LinkedIn, GitHub ou télécharge mon CV' : 'Find me on LinkedIn, GitHub or download my resume'}
         </div>
       </footer>
     </main>

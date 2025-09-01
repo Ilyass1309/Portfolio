@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import LanguageToggle from "@/components/LanguageToggle";
 import "./globals.css";
 import ClientLayout from "./ClientLayout";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +25,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ClientLayout>
-          <Navbar />
-          <LanguageToggle />
-          {children}
-        </ClientLayout>
+        <LanguageProvider>
+          <ClientLayout>
+            <Navbar />
+            <LanguageToggle />
+            {children}
+          </ClientLayout>
+        </LanguageProvider>
       </body>
     </html>
   );

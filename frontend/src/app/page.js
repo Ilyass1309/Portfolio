@@ -1,14 +1,16 @@
 "use client";
 import ProjectCard from "@/components/ProjectCard";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
   const [iaModalOpen, setIaModalOpen] = useState(false);
+  const { t, lang } = useLanguage();
   return (
     <main className="flex flex-col items-center justify-center min-h-screen w-screen overflow-hidden pt-20 sm:pt-32 page-enter">
       <div className="text-center px-4 sm:px-6 page-enter-delay-1">
         <h1
-          className="font-extrabold text-center mb-2 flex justify-center items-center dtgetai-title"
+          className="font-extrabold text-center mb-2 flex justify-center items-center dtgetai-title whitespace-pre-line"
           style={{
             fontSize: "clamp(48px, 8vw, 110px)",
             width: "100%",
@@ -20,27 +22,27 @@ export default function Home() {
             lineHeight: "0.9",
           }}
         >
-          Hi. I'm Ilyass.<br />A Developer
+          {t('hiTitle')}
         </h1>
-        <p 
+        <p
           className="mt-12 sm:mt-16 text-base sm:text-lg max-w-sm sm:max-w-xl text-center-description px-4 sm:px-0"
           style={{ color: "hsla(171, 15%, 35%, 1)" }}
         >
-          Computer Engineering student and IT Analyst Apprentice at Continental, passionate about AI, software development, and creating innovative digital solutions.
+          {t('intro')}
         </p>
       </div>
 
       {/* Section Projets */}
       <section className="w-full max-w-5xl px-4 sm:px-6 mt-12 sm:mt-20 page-enter-delay-2 mx-auto">
       <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">
-        Mes Projets
+        {t('projects')}
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <ProjectCard
           href="/breezy"
           title="Breezy"
-          description="Réseau social web inspiré de Twitter/X, permettant de partager des posts, suivre des utilisateurs et interagir en temps réel."
+          description={t('breezyDesc')}
           tag="Web App"
           tagColor="blue"
           imgSrc="/AI-tchat.png"
@@ -50,7 +52,7 @@ export default function Home() {
         <ProjectCard
           href="/easysave"
           title="EasySave"
-          description="Logiciel de gestion de sauvegarde locale, simple et efficace pour protéger vos fichiers importants."
+          description={t('easysaveDesc')}
           tag="Software"
           tagColor="green"
           imgSrc="/backup2.png"
@@ -61,8 +63,8 @@ export default function Home() {
           href="#"
           onClick={(e) => { e.preventDefault(); setIaModalOpen(true); }}
           title="IA Stratégie"
-          description="Projet d'apprentissage par IA sur un jeu de stratégie, explorant l'optimisation et la prise de décision autonome."
-          tag="IA / Jeu"
+          description={t('iaDesc')}
+          tag={lang === 'fr' ? 'IA / Jeu' : 'AI / Game'}
           tagColor="purple"
           imgSrc="/globe.svg"
           imgAlt="Projet IA"
@@ -74,24 +76,23 @@ export default function Home() {
         <div className="relative w-full max-w-md rounded-2xl shadow-xl ring-1 ring-black/10 dark:ring-white/10 bg-white dark:bg-neutral-900 overflow-hidden animate-fadeIn">
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-emerald-500" />
           <div className="p-6 sm:p-7">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 text-neutral-900 dark:text-white">En cours de développement</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 text-neutral-900 dark:text-white">{t('iaWipTitle')}</h3>
             <p className="text-sm sm:text-base leading-relaxed text-neutral-600 dark:text-neutral-300 mb-5">
-              Ce projet <strong>IA Stratégie</strong> est actuellement en construction. Je travaille sur l'entraînement d'un agent de décision (recherche, heuristiques & RL) et la visualisation interactive.<br className="hidden sm:block" />
-              Reviens bientôt pour la page détaillée et la démo.
+              {t('iaWipBody')}
             </p>
             <div className="flex flex-col sm:flex-row sm:justify-end gap-3">
               <button
                 onClick={() => setIaModalOpen(false)}
                 className="px-4 py-2.5 rounded-lg font-medium border border-neutral-300 dark:border-neutral-600 text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-800 focus:outline-none focus-visible:ring-4"
               >
-                Fermer
+                {t('close')}
               </button>
               <button
                 onClick={() => { setIaModalOpen(false); window.location.href = '/breezy'; }}
                 className="px-5 py-2.5 rounded-lg font-semibold text-white shadow hover:scale-[1.02] transition focus:outline-none focus-visible:ring-4"
                 style={{ background: 'hsla(172,95%,18%,1)' }}
               >
-                Voir un autre projet
+                {t('seeOther')}
               </button>
             </div>
           </div>
@@ -119,7 +120,7 @@ export default function Home() {
             <svg width="28" height="28" className="sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.828a2 2 0 0 0-.586-1.414l-4.828-4.828A2 2 0 0 0 13.172 2H6zm6 1.414L18.586 10H14a2 2 0 0 1-2-2V3.414zM8 14h8v2H8v-2zm0-4h8v2H8v-2z"/></svg>
           </a>
         </div>
-        <div className="mt-2 text-neutral-500 text-xs sm:text-sm text-center">Find me on LinkedIn, GitHub or download my resume</div>
+  <div className="mt-2 text-neutral-500 text-xs sm:text-sm text-center">{t('footerLine')}</div>
       </footer>
   </main>
   );

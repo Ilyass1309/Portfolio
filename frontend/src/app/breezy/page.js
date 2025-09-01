@@ -4,19 +4,21 @@ import "../../../public/fonts/gastroe.css";
 import Image from "next/image";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BreezyPage() {
+  const { t, lang } = useLanguage();
   const screenshots = [
-    { src: "/breezy/page-accueil.png", title: "Page d'accueil", description: "Flux principal et navigation" },
-    { src: "/breezy/messagerie.png", title: "Messagerie", description: "Conversations privées entre utilisateurs" },
-    { src: "/breezy/conversation.png", title: "Conversation", description: "Fil d'échange en temps réel" },
-    { src: "/breezy/notification.png", title: "Notifications", description: "Alertes en temps réel" },
-    { src: "/breezy/ecrire-commentaire.png", title: "Commentaires", description: "Ajout d'un commentaire sous un Breeze" },
-    { src: "/breezy/liste-commentaires.png", title: "Profil", description: "Informations et activités de l'utilisateur" },
-    { src: "/breezy/recherche-profil.png", title: "Recherche & Profil", description: "Exploration et profils utilisateurs" },
-    { src: "/breezy/langues-disponibles.png", title: "Multilingue", description: "Sélection dynamique des langues" },
-    { src: "/breezy/themes-disponibles.png", title: "Thèmes", description: "Personnalisation de l'apparence" },
-    { src: "/breezy/breezer.png", title: "Commenter un post", description: "Interface de commentaire pour les utilisateurs" },
+    { src: "/breezy/page-accueil.png", title: t('breezy_sc_home_title'), description: t('breezy_sc_home_desc') },
+    { src: "/breezy/messagerie.png", title: t('breezy_sc_msg_title'), description: t('breezy_sc_msg_desc') },
+    { src: "/breezy/conversation.png", title: t('breezy_sc_conversation_title'), description: t('breezy_sc_conversation_desc') },
+    { src: "/breezy/notification.png", title: t('breezy_sc_notif_title'), description: t('breezy_sc_notif_desc') },
+    { src: "/breezy/ecrire-commentaire.png", title: t('breezy_sc_comments_title'), description: t('breezy_sc_comments_desc') },
+    { src: "/breezy/liste-commentaires.png", title: t('breezy_sc_profile_title'), description: t('breezy_sc_profile_desc') },
+    { src: "/breezy/recherche-profil.png", title: t('breezy_sc_search_title'), description: t('breezy_sc_search_desc') },
+    { src: "/breezy/langues-disponibles.png", title: t('breezy_sc_lang_title'), description: t('breezy_sc_lang_desc') },
+    { src: "/breezy/themes-disponibles.png", title: t('breezy_sc_themes_title'), description: t('breezy_sc_themes_desc') },
+    { src: "/breezy/breezer.png", title: t('breezy_sc_commentui_title'), description: t('breezy_sc_commentui_desc') },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null); // number | null
@@ -75,19 +77,19 @@ export default function BreezyPage() {
           lineHeight: "0.9",
         }}
       >
-        Breezy
+  Breezy
       </h1>
 
       {/* Main grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 w-full max-w-2xl page-enter-delay-1">
         {/* Timeline */}
         <div className="flex flex-col items-center">
-          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Timeline</div>
+          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_timeline')}</div>
           <div className="rounded-full px-4 py-2 text-neutral-700" style={{ color: "hsla(172, 95%, 18%, 1)" }}>2025</div>
         </div>
         {/* Team */}
         <div className="flex flex-col items-center">
-          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Team</div>
+          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_team')}</div>
           <div className="flex gap-2">
             <a href="https://github.com/TheoCvg" target="_blank" rel="noopener noreferrer" className="relative group">
               <span
@@ -163,9 +165,9 @@ export default function BreezyPage() {
         </div>
         {/* Role */}
         <div className="flex flex-col items-center">
-          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Role</div>
+          <div className="text-lg font-semibold mb-1" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_role_label')}</div>
           <div className="rounded-full px-4 py-2 text-neutral-700 text-center" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Full-Stack Developer, UI/UX Designer
+            {t('breezy_role_value')}
             <br />
           </div>
         </div>
@@ -174,7 +176,7 @@ export default function BreezyPage() {
       {/* Brief description */}
       <div className="w-full flex justify-center items-center my-8 page-enter-delay-1">
         <p className="text-center text-xl max-w-4xl" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-          Un réseau social léger et réactif, inspiré de Twitter/X, permettant aux utilisateurs de partager des messages courts appelés <strong>Breezes</strong>.
+          {t('breezy_brief_before')}<strong>{t('breezy_breezes')}</strong>{t('breezy_brief_after')}
         </p>
       </div>
 
@@ -182,7 +184,7 @@ export default function BreezyPage() {
   <section ref={galleryRef} id="breezy-gallery" className="w-full flex flex-col items-center my-16 page-enter-delay-2">
         <div className="max-w-6xl w-full">
           <h2 className="text-4xl font-bold mb-8 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Galerie d'écrans
+            {t('breezy_gallery_title')}
           </h2>
           {/* Hero image */}
           <div className="relative w-full rounded-2xl overflow-hidden shadow-lg ring-1 ring-[hsla(172,95%,18%,0.3)] mb-10 group">
@@ -201,7 +203,7 @@ export default function BreezyPage() {
             </div>
             <button
               onClick={() => setActiveIndex(0)}
-              aria-label="Voir l'image en grand"
+              aria-label={t('breezy_aria_open_image')}
               className="absolute inset-0 focus:outline-none focus-visible:ring-4 ring-white/50"
               style={{ background: "linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0))", opacity: 0 }}
             />
@@ -234,7 +236,7 @@ export default function BreezyPage() {
             ))}
           </div>
           <p className="text-sm mt-6 text-center" style={{ color: "hsla(172, 95%, 18%, 0.7)" }}>
-            Cliquez sur une capture pour l'agrandir. Navigation clavier : ← → Échap.
+            {t('breezy_gallery_hint')}
           </p>
         </div>
       </section>
@@ -248,7 +250,7 @@ export default function BreezyPage() {
         >
           <button
             className="absolute inset-0 cursor-zoom-out"
-            aria-label="Fermer"
+            aria-label={t('breezy_aria_close')}
             onClick={closeLightbox}
           />
           <div className="relative max-w-6xl w-[95%] mx-auto" onClick={(e)=>e.stopPropagation()}>
@@ -270,7 +272,7 @@ export default function BreezyPage() {
             <div className="absolute -left-4 top-1/2 -translate-y-1/2 hidden md:flex">
               <button
                 onClick={showPrev}
-                aria-label="Précédent"
+                aria-label={t('breezy_aria_previous')}
                 className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
               >
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
@@ -279,7 +281,7 @@ export default function BreezyPage() {
             <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:flex">
               <button
                 onClick={showNext}
-                aria-label="Suivant"
+                aria-label={t('breezy_aria_next')}
                 className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
               >
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -287,7 +289,7 @@ export default function BreezyPage() {
             </div>
             <button
               onClick={closeLightbox}
-              aria-label="Fermer"
+              aria-label={t('breezy_aria_close')}
               className="absolute -top-4 right-0 md:-right-4 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white backdrop-blur flex items-center justify-center shadow-lg"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -297,7 +299,7 @@ export default function BreezyPage() {
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  aria-label={`Aller à ${i + 1}`}
+                  aria-label={`${t('breezy_aria_go_to')} ${i + 1}`}
                   className={`w-2.5 h-2.5 rounded-full transition ${i === activeIndex ? 'bg-[hsla(172,95%,55%,1)] scale-110' : 'bg-white/30 hover:bg-white/60'}`}
                 />
               ))}
@@ -309,21 +311,21 @@ export default function BreezyPage() {
       {/* Overview section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-2">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Overview</h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_overview')}</h2>
           <p className="text-xl leading-relaxed mb-6" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Breezy est un projet de réseau social développé en équipe de cinq personnes, mettant l'accent sur une architecture microservices conteneurisée et un déploiement cloud avec Docker et AWS EC2. L'application offre des fonctionnalités sociales essentielles dans une interface moderne et responsive.
+            {t('breezy_overview_paragraph')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Objectifs</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_goals')}</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-                Créer une plateforme sociale légère et performante avec une architecture moderne et évolutive.
+                {t('breezy_goals_desc')}
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Déploiement</h3>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_deployment')}</h3>
               <p style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-                Application entièrement conteneurisée et déployée sur AWS EC2 avec Docker Compose.
+                {t('breezy_deployment_desc')}
               </p>
             </div>
           </div>
@@ -333,9 +335,7 @@ export default function BreezyPage() {
       {/* Features section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Fonctionnalités principales
-          </h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_features_title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mb-3">
@@ -344,10 +344,8 @@ export default function BreezyPage() {
                   <path stroke="currentColor" strokeWidth="1.5" d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Comptes utilisateurs</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                Création et connexion sécurisée avec JWT et cookies HttpOnly
-              </p>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_feat_accounts_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_feat_accounts_desc')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mb-3">
@@ -355,10 +353,8 @@ export default function BreezyPage() {
                   <path stroke="currentColor" strokeWidth="1.5" d="M3 7h18l-1 10H4L3 7zm0 0L2 3h2m16 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Publications</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                Messages courts (Breezes), système de tags (#), ajout d'images
-              </p>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_feat_posts_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_feat_posts_desc')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-red-200 rounded-lg flex items-center justify-center mb-3">
@@ -366,10 +362,8 @@ export default function BreezyPage() {
                   <path stroke="currentColor" strokeWidth="1.5" d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interactions</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                Likes, commentaires (Breaths), système d'abonnements
-              </p>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_feat_engagement_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_feat_engagement_desc')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-lg flex items-center justify-center mb-3">
@@ -377,10 +371,8 @@ export default function BreezyPage() {
                   <path stroke="currentColor" strokeWidth="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Messagerie privée</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                Conversations entre utilisateurs, édition et suppression
-              </p>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_feat_messages_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_feat_messages_desc')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg flex items-center justify-center mb-3">
@@ -388,10 +380,8 @@ export default function BreezyPage() {
                   <path stroke="currentColor" strokeWidth="1.5" d="M15 17h5l-5-5 5-5h-5m-6 10l5-5-5-5"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Notifications</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                Notifications en temps réel (publications, likes, messages)
-              </p>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_feat_notifications_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_feat_notifications_desc')}</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border transition hover:scale-105" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <div className="w-12 h-12 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-lg flex items-center justify-center mb-3">
@@ -400,10 +390,8 @@ export default function BreezyPage() {
                   <path stroke="currentColor" strokeWidth="1.5" d="M7 3v18"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Interface</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                Design responsive, multilingue, thèmes personnalisables
-              </p>
+              <h3 className="text-lg font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_feat_interface_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_feat_interface_desc')}</p>
             </div>
           </div>
         </div>
@@ -412,36 +400,34 @@ export default function BreezyPage() {
       {/* Architecture section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Architecture Microservices
-          </h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_arch_title')}</h2>
           <p className="text-xl leading-relaxed mb-8" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Breezy repose sur une architecture microservices orchestrée avec Docker, permettant une évolutivité et une maintenance optimales.
+            {t('breezy_arch_intro')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Auth Service</h3>
-              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>JWT, refresh tokens, sécurité</p>
+              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_arch_auth')}</p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>User Service</h3>
-              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Gestion des profils utilisateurs</p>
+              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_arch_user')}</p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Post Service</h3>
-              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Breezes, création, affichage, tags</p>
+              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_arch_post')}</p>
             </div>
             <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Message Service</h3>
-              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Messagerie privée, conversations</p>
+              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_arch_message')}</p>
             </div>
             <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Notification Service</h3>
-              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Notifications temps réel</p>
+              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_arch_notification')}</p>
             </div>
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
               <h3 className="font-semibold text-sm mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>API Gateway</h3>
-              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Nginx, point d'entrée unique</p>
+              <p className="text-xs" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_arch_gateway')}</p>
             </div>
           </div>
         </div>
@@ -450,9 +436,7 @@ export default function BreezyPage() {
       {/* Technologies section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Stack Technologique
-          </h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_stack_title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Frontend</h3>
@@ -473,7 +457,7 @@ export default function BreezyPage() {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Infrastructure</h3>
+              <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_stack_infrastructure')}</h3>
               <div className="flex flex-wrap gap-2 mb-6">
                 {['Docker', 'Docker Compose', 'Nginx', 'AWS EC2'].map((tech) => (
                   <span key={tech} className="px-3 py-1 text-sm rounded-full bg-orange-100" style={{ color: "hsla(172, 95%, 18%, 1)", borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
@@ -481,7 +465,7 @@ export default function BreezyPage() {
                   </span>
                 ))}
               </div>
-              <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Outils</h3>
+              <h3 className="text-2xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_stack_tools')}</h3>
               <div className="flex flex-wrap gap-2">
                 {['GitHub Projects', 'Figma', 'Postman', 'VS Code', 'Notion', 'Discord'].map((tool) => (
                   <span key={tool} className="px-3 py-1 text-sm rounded-full bg-purple-100" style={{ color: "hsla(172, 95%, 18%, 1)", borderColor: "hsla(172, 95%, 18, 0.2)" }}>
@@ -497,26 +481,24 @@ export default function BreezyPage() {
       {/* Organization section */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Organisation & Méthodologie
-          </h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_org_title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Approche Agile</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_org_agile_title')}</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                <li>• Backlog structuré</li>
-                <li>• Daily meetings</li>
-                <li>• Itérations rapides</li>
-                <li>• GitHub Projects pour la gestion des tâches</li>
+                <li>{t('breezy_org_agile_backlog')}</li>
+                <li>{t('breezy_org_agile_daily')}</li>
+                <li>{t('breezy_org_agile_iterations')}</li>
+                <li>{t('breezy_org_agile_tasks')}</li>
               </ul>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Collaboration</h3>
+              <h3 className="text-xl font-semibold mb-4" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_org_collab_title')}</h3>
               <ul className="space-y-2" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>
-                <li>• Répartition frontend/backend</li>
-                <li>• Collaboration continue</li>
-                <li>• Flexibilité des rôles</li>
-                <li>• Montée en compétences croisées</li>
+                <li>{t('breezy_org_collab_split')}</li>
+                <li>{t('breezy_org_collab_continuous')}</li>
+                <li>{t('breezy_org_collab_flex')}</li>
+                <li>{t('breezy_org_collab_growth')}</li>
               </ul>
             </div>
           </div>
@@ -526,17 +508,15 @@ export default function BreezyPage() {
       {/* Future improvements */}
       <div className="w-full flex flex-col items-center my-12 page-enter-delay-3">
         <div className="max-w-4xl w-full">
-          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Améliorations futures
-          </h2>
+          <h2 className="text-4xl font-bold mb-6 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_future_title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Modération</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Outils d'administration avancés</p>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_future_moderation_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_future_moderation_desc')}</p>
             </div>
             <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg border" style={{ borderColor: "hsla(172, 95%, 18%, 0.2)" }}>
-              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>Mentions</h3>
-              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>Système de mentions utilisateur</p>
+              <h3 className="font-semibold mb-2" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_future_mentions_title')}</h3>
+              <p className="text-sm" style={{ color: "hsla(172, 95%, 18%, 0.8)" }}>{t('breezy_future_mentions_desc')}</p>
             </div>
           </div>
         </div>
@@ -545,9 +525,7 @@ export default function BreezyPage() {
       {/* Links */}
       <div className="w-full flex flex-col items-center my-8">
         <div className="max-w-2xl w-full flex flex-col items-center gap-4">
-          <h2 className="text-3xl font-bold mb-4 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>
-            Liens du projet
-          </h2>
+          <h2 className="text-3xl font-bold mb-4 dtgetai-title" style={{ color: "hsla(172, 95%, 18%, 1)" }}>{t('breezy_links_title')}</h2>
           <div className="flex flex-row gap-6">
             <a
               href="https://github.com/IsAy15/DAD-Equipe-6"
@@ -559,7 +537,7 @@ export default function BreezyPage() {
                 fontSize: "18px",
               }}
             >
-              View on GitHub
+              {t('breezy_view_github')}
             </a>
             <a
               href="https://breezy-dad-6-dlsz.vercel.app/"
@@ -572,7 +550,7 @@ export default function BreezyPage() {
               }}
             >
               <span className="absolute -top-2 -right-2 text-[10px] tracking-wide bg-white text-[hsla(172,95%,18%,1)] font-semibold px-2 py-0.5 rounded-full shadow-sm border border-white/60">BETA</span>
-              <span>Essayer en ligne</span>
+              <span>{t('breezy_try_online')}</span>
               <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-90 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
                 <path d="M7 17L17 7" />
                 <path d="M7 7h10v10" />
