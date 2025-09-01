@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
+
 export default function EasySavePage() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <main className="flex flex-col items-center min-h-screen w-full pt-24 px-4 relative page-enter">
       {/* Title */}
@@ -503,7 +506,7 @@ export default function EasySavePage() {
       {/* Next project button */}
       <div className="w-full flex justify-center my-12">
         <button
-          onClick={() => window.location.href = "/breezy"}
+          onClick={() => setModalOpen(true)}
           className="font-bold text-8xl transition-all duration-300 hover:border-white hover:border-2 hover:rounded-xl relative group"
           style={{
             background: "none",
@@ -520,10 +523,25 @@ export default function EasySavePage() {
               fontFamily: "inherit",
             }}
           >
-            Breezy.
+            IA.
           </span>
         </button>
       </div>
+      <NotAvailableModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </main>
+  );
+}
+
+// Ajout d'une page d'indisponibilité temporaire pour la page IA
+function NotAvailableModal({ open, onClose }) {
+  if (!open) return null;
+  return (
+    <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.7)',zIndex:9999,display:'flex',alignItems:'center',justifyContent:'center'}}>
+      <div style={{background:'#fff',color:'#0d5952',padding:'2rem 2.5rem',borderRadius:'1.5rem',boxShadow:'0 4px 32px #0002',maxWidth:400,textAlign:'center',position:'relative'}}>
+        <h2 style={{fontSize:'2rem',fontWeight:700,marginBottom:'1rem'}}>Bientôt disponible !</h2>
+        <p style={{marginBottom:'1.5rem'}}>La page IA n'est pas encore terminée.<br/>Revenez plus tard pour découvrir ce projet.</p>
+        <button onClick={onClose} style={{background:'#0d5952',color:'#fff',border:'none',borderRadius:'0.5rem',padding:'0.7rem 1.5rem',fontWeight:600,cursor:'pointer'}}>Fermer</button>
+      </div>
+    </div>
   );
 }
