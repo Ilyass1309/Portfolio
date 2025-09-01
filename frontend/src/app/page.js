@@ -43,20 +43,22 @@ export default function Home() {
           href="/breezy"
           title="Breezy"
           description={t('breezyDesc')}
-          tag="Web App"
+          tag={t('tag_web_app')}
           tagColor="blue"
           imgSrc="/AI-tchat.png"
           imgAlt="Breezy"
+          ctaLabel={t('project_card_cta')}
         />
 
         <ProjectCard
           href="/easysave"
           title="EasySave"
           description={t('easysaveDesc')}
-          tag="Software"
+          tag={t('tag_software')}
           tagColor="green"
           imgSrc="/backup2.png"
           imgAlt="EasySave"
+          ctaLabel={t('project_card_cta')}
         />
 
         <ProjectCard
@@ -64,10 +66,11 @@ export default function Home() {
           onClick={(e) => { e.preventDefault(); setIaModalOpen(true); }}
           title="IA Stratégie"
           description={t('iaDesc')}
-          tag={lang === 'fr' ? 'IA / Jeu' : 'AI / Game'}
+          tag={t('tag_ai_game')}
           tagColor="purple"
           imgSrc="/globe.svg"
           imgAlt="Projet IA"
+          ctaLabel={t('project_card_cta')}
         />
       </div>
     </section>

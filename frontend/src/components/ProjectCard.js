@@ -16,6 +16,7 @@ export default function ProjectCard({
   imgSrc,
   imgAlt,
   onClick,
+  ctaLabel,
 }) {
   return (
     <Link
@@ -83,7 +84,7 @@ export default function ProjectCard({
         text-neutral-700 dark:text-neutral-200
         group-hover:text-indigo-700 dark:group-hover:text-indigo-300
       ">
-        Voir le projet
+        {ctaLabel || 'Voir le projet'}
         <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 20 20" fill="currentColor">
           <path d="M12.293 5.293a1 1 0 011.414 0l4 4a.997.997 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/>
         </svg>
