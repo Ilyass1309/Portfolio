@@ -527,20 +527,20 @@ export default function EasySavePage() {
           </span>
         </button>
       </div>
-      <NotAvailableModal open={modalOpen} onClose={() => setModalOpen(false)} />
+  <NotAvailableModal open={modalOpen} setOpen={setModalOpen} />
     </main>
   );
 }
 
 // Ajout d'une page d'indisponibilité temporaire pour la page IA
-function NotAvailableModal({ open, onClose }) {
+function NotAvailableModal({ open, setOpen }) {
   if (!open) return null;
   return (
     <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.7)',zIndex:9999,display:'flex',alignItems:'center',justifyContent:'center'}}>
       <div style={{background:'#fff',color:'#0d5952',padding:'2rem 2.5rem',borderRadius:'1.5rem',boxShadow:'0 4px 32px #0002',maxWidth:400,textAlign:'center',position:'relative'}}>
         <h2 style={{fontSize:'2rem',fontWeight:700,marginBottom:'1rem'}}>Bientôt disponible !</h2>
         <p style={{marginBottom:'1.5rem'}}>La page IA n'est pas encore terminée.<br/>Revenez plus tard pour découvrir ce projet.</p>
-        <button onClick={onClose} style={{background:'#0d5952',color:'#fff',border:'none',borderRadius:'0.5rem',padding:'0.7rem 1.5rem',fontWeight:600,cursor:'pointer'}}>Fermer</button>
+        <button onClick={() => setOpen(false)} style={{background:'#0d5952',color:'#fff',border:'none',borderRadius:'0.5rem',padding:'0.7rem 1.5rem',fontWeight:600,cursor:'pointer'}}>Fermer</button>
       </div>
     </div>
   );
