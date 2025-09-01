@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 export default function EasySavePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -534,14 +535,98 @@ export default function EasySavePage() {
 
 // Ajout d'une page d'indisponibilité temporaire pour la page IA
 function NotAvailableModal({ open, setOpen }) {
+  const scrollYRef = useRef(0);
+
+  useEffect(() => {
+    if (!open) return;
+    // Mémorise la position de scroll et verrouille le scroll
+    scrollYRef.value = window.scrollY;
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    // Empêche le jump quand on restaure
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollYRef.value}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+      body.style.position = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
+      window.scrollTo(0, scrollYRef.value);
+    };
+  }, [open]);
+
   if (!open) return null;
-  return (
-    <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.7)',zIndex:9999,display:'flex',alignItems:'center',justifyContent:'center'}}>
-      <div style={{background:'#fff',color:'#0d5952',padding:'2rem 2.5rem',borderRadius:'1.5rem',boxShadow:'0 4px 32px #0002',maxWidth:400,textAlign:'center',position:'relative'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:700,marginBottom:'1rem'}}>Bientôt disponible !</h2>
-        <p style={{marginBottom:'1.5rem'}}>La page IA n'est pas encore terminée.<br/>Revenez plus tard pour découvrir ce projet.</p>
-        <button onClick={() => setOpen(false)} style={{background:'#0d5952',color:'#fff',border:'none',borderRadius:'0.5rem',padding:'0.7rem 1.5rem',fontWeight:600,cursor:'pointer'}}>Fermer</button>
+
+  const overlay = (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-indispo-title"
+      className="fixed inset-0 z-[9999] flex items-center justify-center px-4"
+      style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(2px)' }}
+      onClick={() => setOpen(false)}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: '#fff',
+            color: '#0d5952',
+            padding: '2rem 2.2rem',
+            borderRadius: '1.5rem',
+            boxShadow: '0 6px 40px -4px rgba(0,0,0,0.25)',
+            maxWidth: 480,
+            width: '100%',
+            textAlign: 'center',
+            position: 'relative',
+        }}
+      >
+        <h2 id="modal-indispo-title" style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1rem' }}>Bientôt disponible !</h2>
+        <p style={{ marginBottom: '1.5rem', lineHeight: 1.5 }}>
+          La page IA n'est pas encore terminée.<br />Reviens un peu plus tard pour découvrir ce projet.
+        </p>
+        <div className="flex gap-3 justify-center flex-wrap">
+          <button
+            onClick={() => setOpen(false)}
+            style={{
+              background: '#0d5952',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '0.7rem',
+              padding: '0.75rem 1.6rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              fontSize: '0.95rem',
+            }}
+          >
+            Fermer
+          </button>
+        </div>
+        <button
+          aria-label="Fermer"
+          onClick={() => setOpen(false)}
+          style={{
+            position: 'absolute',
+            top: '0.75rem',
+            right: '0.75rem',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            color: '#0d5952'
+          }}
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
     </div>
   );
+
+  return createPortal(overlay, typeof document !== 'undefined' ? document.body : undefined);
 }
