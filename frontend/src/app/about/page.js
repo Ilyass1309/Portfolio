@@ -39,11 +39,18 @@ export default function About() {
       <div className="mt-8 sm:mt-12 w-full max-w-4xl page-enter-delay-2">
   <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">{lang === 'fr' ? 'Éducation & Expérience' : 'Education & Experience'}</h2>
         <ol className="relative border-l-2 border-neutral-200 pl-2 sm:pl-0">
-          {/* Expérience 1 */}
+          {/* Expérience Aumovio */}
+          <li className="mb-6 sm:mb-10 ml-4 sm:ml-6">
+            <span className="absolute -left-2.5 sm:-left-3 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-indigo-200 rounded-full ring-4 sm:ring-8 ring-white"></span>
+            <h3 className="text-base sm:text-lg font-bold">Aumovio</h3>
+            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">01/09/2025 - {lang === 'fr' ? 'Présent' : 'Present'} · {lang === 'fr' ? 'Apprenti Analyste & Développeur' : 'Apprentice Analyst & Developer'}</span>
+            <p className="text-neutral-600 text-sm sm:text-base">{lang === 'fr' ? 'Conception et développement de solutions logicielles (continuité de mon rôle précédent).' : 'Designing and developing software solutions (continuity of my previous role).'} </p>
+          </li>
+          {/* Expérience 1 (mise à jour Continental) */}
           <li className="mb-6 sm:mb-10 ml-4 sm:ml-6">
             <span className="absolute -left-2.5 sm:-left-3 flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 bg-blue-200 rounded-full ring-4 sm:ring-8 ring-white"></span>
             <h3 className="text-base sm:text-lg font-bold">Continental Automotive</h3>
-            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2024 - {lang === 'fr' ? 'Présent' : 'Present'} · {lang === 'fr' ? 'Apprenti Analyste & Développeur' : 'Apprentice Analyst & Developer'}</span>
+            <span className="block text-xs sm:text-sm text-neutral-500 mb-1">2024 - 31/08/2025 · {lang === 'fr' ? 'Apprenti Analyste & Développeur' : 'Apprentice Analyst & Developer'}</span>
             <p className="text-neutral-600 text-sm sm:text-base">{lang === 'fr' ? 'Développement de solutions logicielles innovantes (applications automobiles).' : 'Developing innovative software solutions for automotive applications.'}</p>
           </li>
           {/* Expérience 2 */}
