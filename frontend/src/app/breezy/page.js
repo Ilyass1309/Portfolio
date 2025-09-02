@@ -563,10 +563,10 @@ export default function BreezyPage() {
 
 
       {/* Next project button */}
-      <div className="w-full flex justify-center my-12">
+      <div className="w-full flex justify-center my-12 px-4">
         <button
           onClick={() => window.location.href = "/easysave"}
-          className="font-bold text-8xl transition-all duration-300 hover:border-white hover:border-2 hover:rounded-xl relative group"
+          className="font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-300 hover:border-white hover:border-2 hover:rounded-xl relative group leading-none text-center"
           style={{
             background: "none",
             border: "none",
@@ -574,6 +574,7 @@ export default function BreezyPage() {
             cursor: "pointer",
             padding: 0,
             outline: "none",
+            wordBreak: "break-word",
           }}
         >
           <span
