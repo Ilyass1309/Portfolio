@@ -490,7 +490,10 @@ export default function EasySavePage() {
             >
               {lang === 'fr' ? t('easysave_view_github') : 'View on GitHub'}
             </a>
-            <button
+            <a
+              href="https://github.com/adam31-7/EasySave/tree/main/docs"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg font-semibold shadow transition hover:scale-105 border-2"
               style={{
                 background: "transparent",
@@ -498,10 +501,9 @@ export default function EasySavePage() {
                 borderColor: "hsla(172, 95%, 18%, 1)",
                 fontSize: "18px",
               }}
-              onClick={() => alert(t('easysave_doc_alert'))}
             >
               {t('easysave_documentation')}
-            </button>
+            </a>
           </div>
         </div>
       </div>
