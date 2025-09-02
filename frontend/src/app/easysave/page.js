@@ -540,6 +540,8 @@ export default function EasySavePage() {
 // Ajout d'une page d'indisponibilité temporaire pour la page IA
 function NotAvailableModal({ open, setOpen }) {
   const scrollYRef = useRef(0);
+  // Récupération de la fonction de traduction (corrige l'erreur t is not defined)
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (!open) return;

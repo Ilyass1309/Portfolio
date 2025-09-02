@@ -14,7 +14,6 @@ const DICT = {
   fr: {
     work: 'Projets',
     about: 'À propos',
-    contact: 'Contact',
     hiTitle: "Salut.\n Je suis Ilyass.\n Un Développeur",
     intro: "Étudiant en ingénierie informatique et apprenti Analyste IT chez Continental, passionné par l'IA, le développement logiciel et la création de solutions numériques innovantes.",
     projects: 'Mes Projets',
@@ -27,7 +26,6 @@ const DICT = {
     seeOther: 'Voir un autre projet',
     footerLine: 'Retrouve‑moi sur LinkedIn, GitHub ou télécharge mon CV',
   // Breezy page
-  breezy_title: 'Breezy',
   breezy_timeline: 'Chronologie',
   breezy_team: 'Équipe',
   breezy_role_label: 'Rôle',
@@ -217,7 +215,6 @@ const DICT = {
   en: {
     work: 'Work',
     about: 'About',
-    contact: 'Contact',
     hiTitle: "Hi. I'm Ilyass.\nA Developer",
     intro: 'Computer Engineering student and IT Analyst Apprentice at Continental, passionate about AI, software development, and creating innovative digital solutions.',
     projects: 'My Projects',
@@ -230,7 +227,6 @@ const DICT = {
     seeOther: 'See another project',
     footerLine: 'Find me on LinkedIn, GitHub or download my resume',
   // Breezy page
-  breezy_title: 'Breezy',
   breezy_timeline: 'Timeline',
   breezy_team: 'Team',
   breezy_role_label: 'Role',

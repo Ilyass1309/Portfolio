@@ -17,11 +17,6 @@ export default function Navbar() {
             {t('about')}
           </Link>
         </li>
-        <li>
-          <Link href="/contact" className="hover:text-black transition-colors duration-200">
-            {t('contact')}
-          </Link>
-        </li>
       </ul>
     </nav>
   );
