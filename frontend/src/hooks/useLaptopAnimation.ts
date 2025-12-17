@@ -24,13 +24,17 @@ export function useLaptopAnimation() {
     setIsAnimating(true);
     const laptopEl = laptopRef.current;
     const screenEl = screenRef.current;
-    laptopEl.style.transformOrigin = 'center bottom';
+    
+    // ← CHANGÉ : transformOrigin sur l'écran, pas sur le bas
+    laptopEl.style.transformOrigin = 'center center';
 
     const vw = window.innerWidth / 2;
     const vh = window.innerHeight / 2;
+    
+    // ← IMPORTANT : On calcule la position de l'ÉCRAN, pas du laptop entier
     const screenRect = screenEl.getBoundingClientRect();
     const deltaX = Math.round(vw - (screenRect.left + screenRect.width / 2));
-    const deltaY = Math.round(vh - (screenRect.top + screenRect.height / 2));
+    const deltaY = Math.round(vh - (screenRect.top + screenRect.height / 2)) +50; // ← -50 pour monter l'écran
 
     setZoomOffset({ x: deltaX, y: deltaY });
 
@@ -39,8 +43,8 @@ export function useLaptopAnimation() {
       ease: "power3.out",
       x: deltaX,
       y: deltaY,
-      z: 420,
-      scale: 1.22,
+      z: 650,
+      scale: 1.5,
       rotateX: 0,
       rotateY: 0,
       onComplete: () => {

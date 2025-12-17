@@ -17,7 +17,7 @@ export default function Taskbar({ activeApp, onOpenApp }: Props) {
   return (
     <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 25, background: "#eef2f6", color: "#0b0b0b", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "4px 12px", boxShadow: "0 -6px 18px rgba(6,10,15,0.06)", borderTop: "1px solid rgba(11,11,11,0.06)" }}>
       {/* Left: Windows button */}
-      <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 100 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, width: 120 }}>
         <button onClick={() => onOpenApp('accueil')} style={{ width: 28, height: 28, borderRadius: 6, border: "none", background: "transparent", color: "#0b0b0b", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
             <path d="M3 5.5L11 4.2V11.5H3V5.5Z" fill="#0b0b0b" />
@@ -45,7 +45,7 @@ export default function Taskbar({ activeApp, onOpenApp }: Props) {
       </div>
 
       {/* Right: App name + time */}
-      <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 120, justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, width: 120, justifyContent: "flex-end" }}>
         <div style={{ fontSize: 12 }}>{activeApp ? appNames[activeApp as keyof typeof appNames] : ""}</div>
         <div style={{ width: 1, height: 16, background: "rgba(0,0,0,0.06)" }} />
         <div style={{ fontSize: 12 }}>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>

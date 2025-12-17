@@ -98,7 +98,7 @@ export default function LaptopHero() {
           ref={laptopRef}
           style={{
             width: 640,
-            transform: isAnimating ? undefined : `rotateX(${tiltX}deg) rotateY(${tiltY}deg) ${isZoomed ? `translate3d(${zoomOffset.x}px, ${zoomOffset.y}px, 420px) scale(1.22)` : ""}`,
+            transform: isAnimating ? undefined : `rotateX(${tiltX}deg) rotateY(${tiltY}deg) ${isZoomed ? `translate3d(${zoomOffset.x}px, ${zoomOffset.y}px, 650px) scale(1.5)` : ""}`, // ← CHANGÉ ici aussi
             transformStyle: "preserve-3d",
             transition: "transform 0.25s ease-out",
             position: "relative",
@@ -147,7 +147,7 @@ export default function LaptopHero() {
                             onMaximize={toggleMaximize}
                             title={APP_TITLES[activeApp as keyof typeof APP_TITLES] || 'Fenêtre'}
                           />
-                          <div style={{ padding: 14, height: "calc(100% - 36px)", overflow: "auto" }}>
+                          <div style={{ padding: 14, height: "calc(100% - 36px)", overflow: "auto", display: "flex", flexDirection: "column" }}>
                             <AppContent appId={activeApp} />
                           </div>
                         </div>
